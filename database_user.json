@@ -1,0 +1,18 @@
+[
+    {
+    "usuarios": [
+      {
+        
+        "primeiroNome": "",
+        "sobrenome": "",
+        "email": "",
+        "celular": "",
+        "CEP": "",
+        "Logradouro": "",
+        "Cidade": "",
+        "Estado": "",
+        "passagens": []
+      }
+    ]
+  }
+]

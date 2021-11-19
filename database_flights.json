@@ -1,0 +1,38 @@
+[
+  {
+    "voos": [
+      {
+        "departure_airport_code": "SSA",
+        "arrival_airport_code": "GRU",
+        "num_stops": 2,
+        "price": 210,
+        "trip_duration": "12 hr 45 min",
+        "departure_date": "11/19/2021",
+        "departure_time": "4:55 PM",
+        "arrival_time": "5:40 AM",
+        "layovers": "1 hr 40 min at Brasília (BSB), 6 hr 15 min at Rio de Janeiro (GIG)Overnight at ",
+        "cabin_class": "Economy, Economy, Economy",
+        "airlines": "LATAM, LATAM, LATAM",
+        "detail_url": "https://www.google.com/travel/flights/booking?tfs=CBwQAhqEAWoHCAESA1NTQRIKMjAyMS0xMS0xOXIHCAESA0dSVSIgCgNTU0ESCjIwMjEtMTEtMTkaA0JTQioCTEEyBDM3MjYiIAoDQlNCEgoyMDIxLTExLTE5GgNHSUcqAkxBMgQzNDQ1IiAKA0dJRxIKMjAyMS0xMS0yMBoDR1JVKgJMQTIEMzE5NHABggELCP___________wFAAUgBmAEC&tfu=CoABQ2pSSVdVRjBkRGc1ZFVWUFRrbEJSa0p4TTFGQ1J5MHRMUzB0TFMwdExYQm1jWG94TTBGQlFVRkJSMGRZTFZoTlEwWkdRVUZCRWhSTVFUTTNNalo4VEVFek5EUTFmRXhCTXpFNU5Cb0xDTldqQVJBQ0dnTlZVMFE0SEhEVm93RT0SBggBEAAYAA",
+        "arrival_date": "11/20/2021"
+      },
+      {
+        "departure_airport_code": "SSA",
+        "arrival_airport_code": "GRU",
+        "num_stops": 2,
+        "price": 210,
+        "trip_duration": "12 hr 50 min",
+        "departure_date": "11/19/2021",
+        "departure_time": "4:55 PM",
+        "arrival_time": "5:45 AM",
+        "layovers": "1 hr 5 min at Brasília (BSB), 4 hr at Recife (REC)Overnight at ",
+        "cabin_class": "Economy, Economy, Economy",
+        "airlines": "LATAM, LATAM, LATAM",
+        "detail_url": "https://www.google.com/travel/flights/booking?tfs=CBwQAhqEAWoHCAESA1NTQRIKMjAyMS0xMS0xOXIHCAESA0dSVSIgCgNTU0ESCjIwMjEtMTEtMTkaA0JTQioCTEEyBDM3MjYiIAoDQlNCEgoyMDIxLTExLTE5GgNSRUMqAkxBMgQzODYwIiAKA1JFQxIKMjAyMS0xMS0yMBoDR1JVKgJMQTIEMzIxMnABggELCP___________wFAAUgBmAEC&tfu=CoABQ2pSSWFqUlRWamRFU1VaVVRtTkJSa1pGWTJkQ1J5MHRMUzB0TFMwdExYQm1iWGt5TlVGQlFVRkJSMGRZTFZjNFEyOVJjVUZCRWhSTVFUTTNNalo4VEVFek9EWXdmRXhCTXpJeE1ob0xDTldqQVJBQ0dnTlZVMFE0SEhEVm93RT0SBggBEAAYAA",
+        "arrival_date": "11/20/2021"
+      }
+    ]
+  }
+]
+
+
