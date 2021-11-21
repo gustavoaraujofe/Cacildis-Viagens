@@ -3,20 +3,13 @@ import "./inputTexto.css";
 function InputTexto(props) {
   return (
     <div>
-      <div className="inputTexto">
+      <div className="">
         <label>
           <input
-            className="input"
+            className="inputTexto"
             type="text"
             name="name"
-            value="Enviar"
-            style={{
-              borderRadius: "9px",
-              padding: "20px 30px",
-              color: "violet",
-              backgroundColor: "white",
-              fontWeight: "bold",
-            }}
+            value="Texto"
           />
         </label>
       </div>
