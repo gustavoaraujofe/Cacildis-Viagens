@@ -11,8 +11,13 @@ function Home() {
     <div>
       <LogoTexto />
       <HomeTitle />
+      De
       <InputTexto />
+      Para
+      <InputTexto />
+      Ida
       <InputData />
+      Pessoas
       <Counter />
       <ButtonDark content="Buscar" />
       <ButtonPink content="Confirmar" />

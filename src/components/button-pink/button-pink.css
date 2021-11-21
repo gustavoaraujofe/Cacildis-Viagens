@@ -1,7 +1,11 @@
 .btn-pink {
   background-color: hsl(298, 93%, 34%);
   border: 1px solid hsl(298, 93%, 14%);
-  color: white
+  color: white;
+  padding: .5em;
+  width: 150px;
+  font-weight: 700;
+  font-family: inherit;
 }
 
 .btn-pink:hover, .btn-pink:focus {
