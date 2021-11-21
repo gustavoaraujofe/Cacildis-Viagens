@@ -1,0 +1,9 @@
+.loading-bar {
+    background: linear-gradient(to right, hsl(220, 16%, 15%), hsl(154, 100%, 48%));
+    width: 250px;
+    height: 20px;
+    box-shadow: 0 0 5px 0 black;
+    padding: .5em;
+}
+
+

@@ -8,15 +8,19 @@ import Counter from "../counter/counter";
 import HeroImage from "../hero-image/hero-image";
 import backgroundOne from "../../assets/images/homepage-image.jpg";
 import backgroundTwo from "../../assets/images/homepage-image-two.jpg";
+import Loading from "../loading-bar/loading";
 
 function Home() {
   return (
     <div>
+      
       <LogoTexto />
       <HomeTitle />
+      <Loading />
       <HeroImage img={[backgroundOne, backgroundTwo]} />
       De
       <InputTexto />
+      
       Para
       <InputTexto />
       Ida
@@ -25,6 +29,7 @@ function Home() {
       <Counter />
       <ButtonDark content="Buscar" />
       <ButtonPink content="Confirmar" />
+      
     </div>
   );
 }
