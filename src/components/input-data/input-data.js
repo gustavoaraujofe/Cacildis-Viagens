@@ -5,7 +5,7 @@ function InputData(props) {
     <div>
       <div className="">
         <label>
-          <input className="input-data" type="text" name="name" value="Data" />
+          <input className="input-data" type="date" name="name" value="Data" />
         </label>
       </div>
     </div>
