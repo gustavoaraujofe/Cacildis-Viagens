@@ -1,0 +1,11 @@
+.counter {
+    border: 1px solid #AAA;
+    outline: none;
+    font-size: inherit;
+    padding: .5em;
+}
+
+.counter:focus {
+    border-color: hsl(220, 16%, 15%);
+    box-shadow: 0 0 5px 0 hsl(220, 16%, 15%);
+}
