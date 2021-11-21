@@ -1,15 +1,19 @@
-import Button from "../button/button";
 import InputTexto from "../inputTexto/inputTexto";
+import ButtonPink from "../button-pink/button-pink";
+import ButtonDark from "../button-dark/button-dark";
 
 function Home() {
   return (
     <div>
-        <Button 
+      <ButtonPink 
+        content = 'Confirmar'
+      />
+      <ButtonDark 
         content = 'Pesquisar'
-        />
-        <InputTexto
+      />
+      <InputTexto
          
-        />
+      />
     </div>
   );
 }

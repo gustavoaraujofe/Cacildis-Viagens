@@ -1,0 +1,11 @@
+.btn-pink {
+  background-color: hsl(298, 93%, 34%);
+  border: 1px solid hsl(298, 93%, 14%);
+  color: white
+}
+
+.btn-pink:hover, .btn-pink:focus {
+  background-color: hsl(298, 93%, 24%);
+  box-shadow: 0 0 5px 0 hsl(298, 93%, 14%);
+  cursor: pointer;
+}
