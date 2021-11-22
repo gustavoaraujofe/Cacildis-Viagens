@@ -1,14 +1,9 @@
 import "./NavBar.css";
-import { useState } from "react";
 import { Link } from "react-router-dom";
 import UserLogin from "../user-login-icon/user-login";
+import LogoTexto from "../logo-texto/logo-texto";
 
-
-const name = "Gustavo";
-
-function NavBar() {
-  const [login, setLogin] = useState(false);
-
+function NavBar(props) {
   return (
     <div>
       <nav className="navbar navbar-expand-lg navbar-dark bgColor">
@@ -18,15 +13,15 @@ function NavBar() {
             className="navbar-brand text-white collapse navbar-collapse m-auto"
             href="#"
           >
-            Cacildis Viagens
+            <LogoTexto />
           </Link>
           <div className="navbar-toggler rounded-circle border-0">
-            <Link to="/">
+            <Link to={props.backButton}>
               <i className="fa fa-angle-left fa-lg text-white"></i>
             </Link>
           </div>
           <h2 className="navbar-brand text-white navbar-toggler border-0 mb-0">
-            Página Atual
+            {props.pag}
           </h2>
 
           <button

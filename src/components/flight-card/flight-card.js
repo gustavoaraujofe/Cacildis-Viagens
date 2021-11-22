@@ -6,11 +6,11 @@ import itapemerim from "../../assets/images/itapemerim.jpg";
 
 function FlightCard(props) {
   let img =
-    props.img == "Azul"
+    props.img === "Azul"
       ? azul
-      : props.img == "Itapemirim"
+      : props.img === "Itapemirim"
       ? itapemerim
-      : props.img == "LATAM"
+      : props.img === "LATAM"
       ? latam
       : gol;
 

@@ -3,10 +3,17 @@ import "./input-data.css";
 function InputData(props) {
   return (
     <div>
-      <div className="">
-        <label>
-          <input className="input-data" type="date" name="name" value="Data" />
-        </label>
+      {props.label}
+      <div>
+        <label htmlFor={props.id} className="form-label"></label>
+        <input
+          type="date"
+          id={props.id}
+          name={props.name}
+          onChange={props.onChange}
+          value={props.value}
+          required={props.required}
+        />
       </div>
     </div>
   );

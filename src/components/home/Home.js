@@ -1,35 +1,80 @@
-import LogoTexto from "../logo-texto/logo-texto";
 import HomeTitle from "../home-title/home-title";
 import ButtonDark from "../button-dark/button-dark";
-import InputTexto from "../input-texto/input-texto";
 import InputData from "../input-data/input-data";
 import ButtonPink from "../button-pink/button-pink";
-import Counter from "../counter/counter";
-import HeroImage from "../hero-image/hero-image";
-import backgroundOne from "../../assets/images/homepage-image.jpg";
-import backgroundTwo from "../../assets/images/homepage-image-two.jpg";
-import UserIcon from "../user-login-icon/user-login";
-import Timer from "../timer-reservation/timer-reservation";
+import Counter from "../counter/CounterPeople";
+import InputSelect from "../input-select/InputSelect";
 
-function Home() {
+
+function Home(props) {
+  const increaseCount = () =>
+    props.setDadosVoos({
+      ...props.dadosVoos,
+      qtdPessoas: props.dadosVoos.qtdPessoas + 1,
+    });
+  const decreaseCount = () => {
+    if (props.dadosVoos.qtdPessoas > 0)
+      props.setDadosVoos({
+        ...props.dadosVoos,
+        qtdPessoas: props.dadosVoos.qtdPessoas - 1,
+      });
+  };
+
+  function handleChange(event) {
+    props.setDadosVoos({
+      ...props.dadosVoos,
+      [event.target.name]: event.target.value,
+    });
+  }
+
   return (
     <div>
-      <UserIcon />
-     
-      <Timer />
-      <LogoTexto />
       <HomeTitle />
-      Origem
-      <InputTexto />
-      Destino
-      <InputTexto />
-      Ida
-      <InputData />
-      Pessoas
-      <Counter />
-      <ButtonDark content="Buscar" />
-      <ButtonPink content="Confirmar" />
-      <HeroImage img={[backgroundOne, backgroundTwo]} />
+      <InputSelect
+        label="Origem"
+        id="origem"
+        name="origem"
+        onChange={handleChange}
+        value={props.dadosVoos.origem}
+      >
+        <option value="" disabled>
+          Selecione a origem
+        </option>
+        <option value="GRU">São Paulo - Guarulhos</option>
+        <option value="GIG">Rio de Janeiro - Galeão</option>
+        <option value="Miami">Salvador</option>
+      </InputSelect>
+      <InputSelect
+        label="Destino"
+        id="destino"
+        name="destino"
+        onChange={handleChange}
+        value={props.dadosVoos.destino}
+      >
+        <option value="" disabled>
+          Selecione o destino
+        </option>
+        <option value="GRU">São Paulo - Guarulhos</option>
+        <option value="GIG">Rio de Janeiro - Galeão</option>
+        <option value="Miami">Salvador</option>
+      </InputSelect>
+      <InputData
+        label="Ida"
+        id="data"
+        name="data"
+        onChange={handleChange}
+        value={props.dadosVoos.data}
+      />
+      <Counter
+        label="Pessoas"
+        id="qtdPessoas"
+        name="qtdPessoas"
+        onChange={handleChange}
+        value={props.dadosVoos.qtdPessoas}
+        increaseCount={increaseCount}
+        decreaseCount={decreaseCount}
+      />
+      <ButtonDark content="Buscar" to="flight-list" page="Lista de Voos"/>
     </div>
   );
 }
