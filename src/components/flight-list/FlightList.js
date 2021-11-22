@@ -26,9 +26,9 @@ function FlightList(props) {
     flightList();
   }, []);
 
-  flights.filter(() => {
-    return 
-  })
+ // flights.filter(() => {
+ //  return 
+//})
 
 
   return (
