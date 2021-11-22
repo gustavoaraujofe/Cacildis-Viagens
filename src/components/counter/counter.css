@@ -20,7 +20,16 @@
     font-family: inherit;
     width: 25px;
     text-align: center;
+    
   }
+
+.left{
+    border-radius: 4px 0 0 4px;
+}
+
+.right{
+    border-radius: 0 4px 4px 0;
+}
   
 .btn-counter:hover, .btn-counter:focus {
     background-color: hsl(220, 16%, 10%);
@@ -29,21 +38,3 @@
     font-weight: 700;
     font-family: inherit;
 }
-/* 
-.btn-counter {
-    background-color: hsl(218,30%,93%);
-    border: 1px solid hsl(218,30%,73%);
-    color: hsl(220, 16%, 15%);
-    font-weight: 700;
-    font-family: inherit;
-    width: 25px;
-    text-align: center;
-  }
-  
-.btn-counter:hover, .btn-counter:focus {
-    background-color: hsl(218,30%,83%);
-    box-shadow: 0 0 5px 0 hsl(218,30%,73%);
-    cursor: pointer;
-    font-weight: 700;
-    font-family: inherit;
-} */
