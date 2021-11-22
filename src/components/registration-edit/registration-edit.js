@@ -1,10 +1,10 @@
-import "./registration-page.css";
+import "./registration-edit.css";
 import { useState } from "react";
 import axios from "axios";
 import Form from "../form/form";
 import NavBar from "../navbar/NavBar";
 
-function RegistrationPage() {
+function RegistrationEdit() {
   const [formData, setFormData] = useState({
     genero: "",
     email: "",
@@ -19,7 +19,7 @@ function RegistrationPage() {
     event.preventDefault();
     setIsSending(true);
     axios
-      .post("https://ironrest.herokuapp.com/cacildis-viagens-users", formData)
+      .post("https://ironrest.herokuapp.com/cacildis-viagens-voos-v2", formData)
       .then((response) => {
         console.log(response);
         setIsSending(false);
@@ -31,7 +31,7 @@ function RegistrationPage() {
   }
   return (
     <>
-      <NavBar pag="Página de Cadastro" backButton="/" />
+      <NavBar pag="Editar Cadastro" backButton="/" />
       <Form
         handleChange={handleChange}
         handleSubmit={handleSubmit}
@@ -41,10 +41,10 @@ function RegistrationPage() {
       />
       <button className="btn-pink" disabled={isSending} type="submit">
         {isSending ? <span role="status" aria-hidden="true"></span> : null}
-        Cadastrar
+        Confirmar Edição
       </button>
     </>
   );
 }
 
-export default RegistrationPage;
+export default RegistrationEdit;

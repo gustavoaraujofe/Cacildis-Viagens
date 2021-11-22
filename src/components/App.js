@@ -5,6 +5,8 @@ import Home from "./home/Home";
 import "./App.css";
 import FlightList from "./flight-list/FlightList";
 import RegistrationPage from "../components/registration-page/registration-page";
+import RegistrationEdit from "../components/registration-edit/registration-edit";
+import FlightConfirmation from "./flight-confirmation/flight-confirmation";
 
 function App() {
   const [login, setLogin] = useState(false);
@@ -15,17 +17,17 @@ function App() {
     qtdPessoas: 0,
   });
   const [passagens, setPassagens] = useState([])
-
   console.log(dadosVoos);
+
   return (
     <div>
       <Routes>
         <Route path="/" element={<Home dadosVoos={dadosVoos} setDadosVoos={setDadosVoos} />} />
-        <Route path="flight-list" element={<FlightList dadosVoos={dadosVoos} setDadosVoos={setDadosVoos}/>} />
+        <Route path="flight-list" element={<FlightList dadosVoos={dadosVoos} setDadosVoos={setDadosVoos} />} />
         <Route path="cadastro" element={<RegistrationPage />} />
-        <Route path="editar-cadastro" element="" />
+        <Route path="editar-cadastro" element={<RegistrationEdit />} />
         <Route path="login" element="" />
-        <Route path="confirmacao" element="" />
+        <Route path=":id" element={<FlightConfirmation/>} />
         <Route path="pagamento" element="" />
         <Route path="cartao-embarque" element="" />
         <Route path="reservas" element="" />
@@ -35,7 +37,3 @@ function App() {
 }
 
 export default App;
-
-// Insomnia
-// collection_voos
-// collection_usuarios
