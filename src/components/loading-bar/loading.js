@@ -4,7 +4,7 @@ import './loading.css';
 function Loading(props) {
     return ( 
     <div >
-        <div className="loading-bar"></div><FaPlane />
+        <div className="loading-bar"></div><FaPlane size={24}/>
     </div>
     );
 }

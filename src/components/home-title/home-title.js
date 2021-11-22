@@ -2,7 +2,7 @@ import "./home-title.css"
 
 function HomeTitle() {
     return (
-    <div className="home-title">Para onde você quer ir?</div>
+    <h1 className="home-title">Para onde você quer ir?</h1>
     )
 }
 

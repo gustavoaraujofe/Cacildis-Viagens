@@ -9,19 +9,18 @@ import HeroImage from "../hero-image/hero-image";
 import backgroundOne from "../../assets/images/homepage-image.jpg";
 import backgroundTwo from "../../assets/images/homepage-image-two.jpg";
 import Loading from "../loading-bar/loading";
+import UserIcon from "../user-login-icon/user-login";
 
 function Home() {
   return (
     <div>
-      
       <LogoTexto />
       <HomeTitle />
       <Loading />
-      <HeroImage img={[backgroundOne, backgroundTwo]} />
-      De
+      <UserIcon />
+      Origem
       <InputTexto />
-      
-      Para
+      Destino
       <InputTexto />
       Ida
       <InputData />
@@ -29,7 +28,7 @@ function Home() {
       <Counter />
       <ButtonDark content="Buscar" />
       <ButtonPink content="Confirmar" />
-      
+      <HeroImage img={[backgroundOne, backgroundTwo]} />
     </div>
   );
 }

@@ -6,8 +6,8 @@ function InputTexto(props) {
     <div>
       <div className="">
         <label>
-         <FaPlane />
-          <input className="input-texto" type="text" name="name" value="" />
+         
+          <input className="input-texto" type="text" name="name" value={<FaPlane />}/>
         </label>
 
         <span></span>
