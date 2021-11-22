@@ -4,6 +4,7 @@ import FlightCard from "../flight-card/flight-card";
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import Loading from "../loading-bar/loading";
 
 function FlightConfirmation() {
   const flightId = useParams();
@@ -35,19 +36,27 @@ function FlightConfirmation() {
   return (
     <div>
       <NavBar pag="Confirmação" backButton="/" />
-      <Timer />
-      <FlightCard
-        key={flights._id}
-        img={flights.airlines.split(",")[0]}
-        departure_time={flights.departure_time}
-        arrival_time={flights.arrival_time}
-        trip_duration={flights.trip_duration}
-        departure_airport_code={flights.departure_airport_code}
-        arrival_airport_code={flights.arrival_airport_code}
-        num_stops={flights.num_stops}
-        price={flights.price}
-      />
-      <button className="btn-pink">Fazer o Pagamento</button>
+      {loading ? (
+        <Loading />
+      ) : flights.length === 0 ? (
+        <p className="text-center mt-5">Não existe voos para confirmar</p>
+      ) : (
+        <div>
+          <Timer />
+          <FlightCard
+            key={flights[0]._id}
+            img={flights[0].airlines.split(",")[0]}
+            departure_time={flights[0].departure_time}
+            arrival_time={flights[0].arrival_time}
+            trip_duration={flights[0].trip_duration}
+            departure_airport_code={flights[0].departure_airport_code}
+            arrival_airport_code={flights[0].arrival_airport_code}
+            num_stops={flights[0].num_stops}
+            price={flights[0].price}
+          />
+          <button className="btn-pink">Fazer o Pagamento</button>
+        </div>
+      )}
     </div>
   );
 }
