@@ -10,6 +10,7 @@ import backgroundOne from "../../assets/images/homepage-image.jpg";
 import backgroundTwo from "../../assets/images/homepage-image-two.jpg";
 import Loading from "../loading-bar/loading";
 import UserIcon from "../user-login-icon/user-login";
+import Timer from "../timer-reservation/timer-reservation";
 
 function Home() {
   return (
@@ -18,6 +19,7 @@ function Home() {
       <HomeTitle />
       <Loading />
       <UserIcon />
+      <Timer />
       Origem
       <InputTexto />
       Destino
