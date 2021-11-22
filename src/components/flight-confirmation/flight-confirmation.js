@@ -3,8 +3,8 @@ import NavBar from "../navbar/NavBar";
 import FlightCard from "../flight-card/flight-card";
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
-import Loading from "../loading-bar/loading";
 import axios from "axios";
+import CreditCardInput from "react-credit-card-input";
 
 function FlightConfirmation() {
   const flightId = useParams();
@@ -36,7 +36,7 @@ function FlightConfirmation() {
     <div>
       <NavBar pag="Confirmação" backButton="/" />
       {loading ? (
-        <Loading />
+        null
       ) : flights.length === 0 ? (
         <p className="text-center mt-5">Não existe voos para confirmar</p>
       ) : (
@@ -53,6 +53,46 @@ function FlightConfirmation() {
             num_stops={flights[0].num_stops}
             price={flights[0].price}
           />
+          <div>
+      <CreditCardInput
+        onError={({ inputName, err }) =>
+          console.log(`credit card input error: ${err}`)
+        }
+        cardCVCInputProps={{
+          onBlur: (e) => console.log("cvc blur", e),
+          onChange: (e) => console.log("cvc change", e),
+          onError: (err) => console.log(`cvc error: ${err}`),
+        }}
+        cardExpiryInputProps={{
+          onBlur: (e) => console.log("expiry blur", e),
+          onChange: (e) => console.log("expiry change", e),
+          onError: (err) => console.log(`expiry error: ${err}`),
+        }}
+        cardNumberInputProps={{
+          onBlur: (e) => console.log("number blur", e),
+          onChange: (e) => console.log("number change", e),
+          onError: (err) => console.log(`number error: ${err}`),
+        }}
+        customTextLabels={{
+          invalidCardNumber: "O número do cartão está inválido.",
+          expiryError: {
+            invalidExpiryDate: "A data de expiração está inválida.",
+            monthOutOfRange:
+              "O mês de expiração deve ser um número entre 1 e 12.",
+            yearOutOfRange:
+              "O ano de expiração não pode ser inferior ao atual.",
+            dateOutOfRange:
+              "A data de expiração não pode ser inferior à atual.",
+          },
+          invalidCvc: "O código de segurança está inválido.",
+          invalidZipCode: "O CEP está inválido.",
+          cardNumberPlaceholder: "Número do cartão",
+          expiryPlaceholder: "MM/AA",
+          cvcPlaceholder: "CVC",
+          zipPlaceholder: "CEP",
+        }}
+      />
+    </div>
           <button className="btn-pink">Fazer o Pagamento</button>
         </div>
       )}
