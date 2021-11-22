@@ -3,6 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import Home from "./home/Home";
 import NavBar from "./navbar/NavBar";
 import "./App.css";
+import FlightList from './flight-list/FlightList';
 
 function App() {
   return (
@@ -10,7 +11,7 @@ function App() {
       <NavBar />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="voos" element="" />
+        <Route path="flight-list" element={<FlightList />} />
         <Route path="cadastro" element="" />
         <Route path="editar-cadastro" element="" />
         <Route path="login" element="" />
