@@ -1,7 +1,8 @@
 import "./form.css"
-import FormField from "./FormField";
-import CheckboxInput from "./CheckboxInput";
-import RadioInput from "./RadioInput";
+import FormField from "../form-field/form-field";
+import CheckboxInput from "../input-checkbox/input-checkbox";
+import RadioInput from "../input-radio/input-radio";
+import InputTexto from "../input-texto/input-texto";
 
 function Form(props) {
     return (
@@ -18,7 +19,7 @@ function Form(props) {
             name="genero"
             onChange={props.handleChange}
             value="Sra."
-            checked={props.formData.genero === "Mulher"}
+          
           />
           <RadioInput
             label="Homem"
@@ -26,7 +27,7 @@ function Form(props) {
             name="genero"
             onChange={props.handleChange}
             value="Sr."
-            checked={props.formData.genero === "Homem"}
+
           />
           <RadioInput
             label="Outro"
@@ -34,7 +35,7 @@ function Form(props) {
             name="genero"
             onChange={props.handleChange}
             value="Prefiro não dizer"
-            checked={props.formData.genero === "Outro"}
+
           />
         </fieldset>
 

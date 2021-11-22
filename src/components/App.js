@@ -4,7 +4,7 @@ import Home from "./home/Home";
 import NavBar from "./navbar/NavBar";
 import "./App.css";
 import FlightList from "./flight-list/FlightList";
-import RegistrationPage from "./registration-page";
+import RegistrationPage from "../components/registration-page/registration-page";
 
 function App() {
   return (

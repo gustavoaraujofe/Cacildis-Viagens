@@ -1,4 +1,4 @@
-function CheckboxInput() {
+function CheckboxInput(props) {
     return (
         <div className="form-check">
           <input
