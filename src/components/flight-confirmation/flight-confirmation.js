@@ -11,7 +11,6 @@ function FlightConfirmation() {
   const [flights, setFlights] = useState([]);
   const [loading, setLoading] = useState([]);
 
-  console.log(flightId.id);
 
   useEffect(() => {
     async function flightList() {
@@ -36,7 +35,9 @@ function FlightConfirmation() {
   return (
     <div>
       <NavBar pag="Confirmação" backButton="/" />
-      {loading ? null : flights.length === 0 ? (
+      {loading ? (
+        null
+      ) : flights.length === 0 ? (
         <p className="text-center mt-5">Não existe voos para confirmar</p>
       ) : (
         <div>

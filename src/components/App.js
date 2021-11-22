@@ -4,9 +4,11 @@ import { useState } from "react";
 import Home from "./home/Home";
 import "./App.css";
 import FlightList from "./flight-list/FlightList";
+import ReserveList from "./reserve-list/ReserveList";
 import RegistrationPage from "./registration-page/registration-page";
 import RegistrationEdit from "./registration-edit/registration-edit";
 import FlightConfirmation from "./flight-confirmation/flight-confirmation";
+
 
 function App() {
   const [login, setLogin] = useState(false);
@@ -37,7 +39,7 @@ function App() {
         <Route path="login" element="" />
         <Route path=":id" element={<FlightConfirmation />} />
         <Route path="cartao-embarque" element="" />
-        <Route path="reservas" element="" />
+        <Route path="reservas" element={<ReserveList />} />
       </Routes>
     </div>
   );

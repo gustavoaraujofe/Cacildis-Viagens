@@ -3,6 +3,7 @@ import ButtonDark from "../button-dark/button-dark";
 import InputData from "../input-data/input-data";
 import Counter from "../counter/CounterPeople";
 import InputSelect from "../input-select/InputSelect";
+import NavBar from "../navbar/NavBar";
 
 
 function Home(props) {
@@ -28,6 +29,7 @@ function Home(props) {
 
   return (
     <div>
+      <NavBar pag="Home" backButton="/" />
       <HomeTitle />
       <InputSelect
         label="Origem"

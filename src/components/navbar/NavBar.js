@@ -48,7 +48,7 @@ function NavBar(props) {
               >
                 Home
               </Link>
-              <Link to="" className="nav-link text-white" href="#">
+              <Link to="reservas" className="nav-link text-white" href="#">
                 Minhas Reservas
               </Link>
               <Link to="" className="nav-link text-white" href="#">
