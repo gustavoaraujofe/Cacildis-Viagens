@@ -1,8 +1,8 @@
 .loading-bar {
     background: linear-gradient(to right, hsl(154, 100%, 48%), hsl(154, 100%, 1%));
-    width: 550px;
+    width: 700px;
     height: 8px;
-    box-shadow: 0 0 5px 0 black;
+    box-shadow: 0 0 3px 0 black;
     padding: .5em;
 }
 
