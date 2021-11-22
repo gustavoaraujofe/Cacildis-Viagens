@@ -2,14 +2,19 @@ import { useState, useEffect } from "react";
 import FlightCard from "../flight-card/flight-card";
 import axios from "axios";
 import Loading from "../loading-bar/loading";
+import NavBar from "../navbar/NavBar";
 
-
-let reserveId = ["619b94b521b7950017ceeab1", "619b957d21b7950017ceeab9", "619b957d21b7950017ceeabd", "619b957d21b7950017ceeac3"]
+let reserveId = [
+  "619b94b521b7950017ceeab1",
+  "619b957d21b7950017ceeab9",
+  "619b957d21b7950017ceeabd",
+  "619b957d21b7950017ceeac3",
+];
 
 function ReserveList() {
   const [flights, setFlights] = useState([]);
-  const [reserveList, setReserveList] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [reserveList, setReserveList] = useState([]);
 
   useEffect(() => {
     async function flightList() {
@@ -22,7 +27,7 @@ function ReserveList() {
 
         setTimeout(() => {
           setLoading(false);
-        }, 2000);
+        }, 1000);
       } catch (err) {
         console.log(err);
       }
@@ -32,21 +37,20 @@ function ReserveList() {
   }, []);
 
   useEffect(() => {
-    for(let i = 0; i < reserveId.length; i++){
-       const flight = flights.filter((currentElement) => {
-            return currentElement._id === reserveId[i];
-        })
-        setReserveList([...reserveList, flight]);
+    let list = [];
+    for (let i = 0; i < reserveId.length; i++) {
+      flights.forEach((currentElement) => {
+        if (currentElement._id === reserveId[i]) {
+          list.push(currentElement);
+        }
+      });
     }
-
-
-  },[flights])
-
-
-  console.log(reserveList);
+    setReserveList(list);
+  }, [flights]);
 
   return (
     <div>
+      <NavBar pag="Minhas Reservas" backButton="/" />
       {loading ? (
         <Loading />
       ) : reserveList.length === 0 ? (

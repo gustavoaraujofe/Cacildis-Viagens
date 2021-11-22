@@ -3,31 +3,28 @@ import FormField from "../form-field/form-field";
 import CheckboxInput from "../input-checkbox/input-checkbox";
 import InputSelect from "../input-select/InputSelect";
 import InputTexto from "../input-texto/input-texto";
+import ButtonPink from "../button-pink/button-pink";
 
 function Form(props) {
   return (
     <form onSubmit={props.handleSubmit}>
-      Nome Completo
+      Nome Completo:
       <InputTexto />
-
       {/* Input Gênero */}
       <InputSelect
-        label="Gênero"
+        label="Como gostaria de ser chamado:"
         id="genero"
         name="genero"
         onChange={props.handleChange}
         value={props.formData.genero}
       >
-        <option value="" disabled>
-          Selecione o genero
-        </option>
         <option value="Mulher">Sra.</option>
         <option value="Homem">Sr.</option>
         <option value="Outro">Prefiro não dizer</option>
       </InputSelect>
       {/* Input Email */}
       <FormField
-        label="Email Address"
+        label="Digite o seu e-mail:"
         id="exampleInputEmail1"
         type="email"
         name="email"
@@ -37,17 +34,16 @@ function Form(props) {
       />
       {/* Input senha */}
       <FormField
-        label="Password"
+        label="Defina a sua senha:"
         id="exampleInputPassword1"
         type="password"
         name="password"
         onChange={props.handleChange}
         value={props.formData.password}
       />
-      
       {/* Input Data Nascimento */}
       <FormField
-        label="Date of Birth"
+        label="Data de Nascimento:"
         id="exampleInputDate"
         type="date"
         name="birthDate"
@@ -56,7 +52,7 @@ function Form(props) {
       />
       {/* Input Termos e Condições  */}
       <CheckboxInput
-        label="I accept the terms and conditions"
+        label="Eu aceito os Termos e Condições."
         id="exampleInputTerms"
         name="acceptedTerms"
         onChange={(event) =>
@@ -67,23 +63,7 @@ function Form(props) {
         }
         checked={props.formData.acceptedTerms}
       />
-     
-      <div className="mt-3 text-end">
-        <button
-          disabled={props.isSending}
-          type="submit"
-          className="btn btn-primary"
-        >
-          {props.isSending ? (
-            <span
-              className="spinner-border spinner-border-sm me-2"
-              role="status"
-              aria-hidden="true"
-            ></span>
-          ) : null}
-          Submit
-        </button>
-      </div>
+      
     </form>
   );
 }
