@@ -19,7 +19,7 @@ function RegistrationPage() {
     event.preventDefault();
     setIsSending(true);
     axios
-      .post("https://ironrest.herokuapp.com/cacildis-viagens-voos-v2", formData)
+      .post("https://ironrest.herokuapp.com/cacildis-viagens-users", formData)
       .then((response) => {
         console.log(response);
         setIsSending(false);
@@ -42,7 +42,6 @@ function RegistrationPage() {
       <button className="btn-pink" disabled={isSending} type="submit">
         {isSending ? <span role="status" aria-hidden="true"></span> : null}
         Cadastrar
-        
       </button>
     </>
   );

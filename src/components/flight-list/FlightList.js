@@ -6,6 +6,7 @@ import NavBar from "../navbar/NavBar";
 import InputSelect from "../input-select/InputSelect";
 import ButtonDark from "../button-dark/button-dark";
 import InputData from "../input-data/input-data";
+import { Link } from 'react-router-dom'
 
 function FlightList(props) {
   const [flights, setFlights] = useState([]);
@@ -100,17 +101,19 @@ function FlightList(props) {
           ) : (
             flights.map((currentElement) => {
               return (
-                <FlightCard
-                  key={currentElement._id}
-                  img={currentElement.airlines.split(",")[0]}
-                  departure_time={currentElement.departure_time}
-                  arrival_time={currentElement.arrival_time}
-                  trip_duration={currentElement.trip_duration}
-                  departure_airport_code={currentElement.departure_airport_code}
-                  arrival_airport_code={currentElement.arrival_airport_code}
-                  num_stops={currentElement.num_stops}
-                  price={currentElement.price}
-                />
+                <Link to={`/${currentElement._id}`}>
+                  <FlightCard
+                    key={currentElement._id}
+                    img={currentElement.airlines.split(",")[0]}
+                    departure_time={currentElement.departure_time}
+                    arrival_time={currentElement.arrival_time}
+                    trip_duration={currentElement.trip_duration}
+                    departure_airport_code={currentElement.departure_airport_code}
+                    arrival_airport_code={currentElement.arrival_airport_code}
+                    num_stops={currentElement.num_stops}
+                    price={currentElement.price}
+                  />
+                </Link>
               );
             })
           )}

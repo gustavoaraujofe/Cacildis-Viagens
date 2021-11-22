@@ -17,17 +17,17 @@ function App() {
     qtdPessoas: 0,
   });
   const [passagens, setPassagens] = useState([])
-
   console.log(dadosVoos);
+
   return (
     <div>
       <Routes>
         <Route path="/" element={<Home dadosVoos={dadosVoos} setDadosVoos={setDadosVoos} />} />
-        <Route path="flight-list" element={<FlightList dadosVoos={dadosVoos} setDadosVoos={setDadosVoos}/>} />
+        <Route path="flight-list" element={<FlightList dadosVoos={dadosVoos} setDadosVoos={setDadosVoos} />} />
         <Route path="cadastro" element={<RegistrationPage />} />
         <Route path="editar-cadastro" element={<RegistrationEdit />} />
         <Route path="login" element="" />
-        <Route path="confirmacao" element={<FlightConfirmation/>} />
+        <Route path=":id" element={<FlightConfirmation/>} />
         <Route path="pagamento" element="" />
         <Route path="cartao-embarque" element="" />
         <Route path="reservas" element="" />
