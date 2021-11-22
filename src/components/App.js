@@ -35,7 +35,3 @@ function App() {
 }
 
 export default App;
-
-// Insomnia
-// collection_voos
-// collection_usuarios
