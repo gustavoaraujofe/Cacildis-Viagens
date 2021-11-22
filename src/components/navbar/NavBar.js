@@ -1,7 +1,8 @@
 import "./NavBar.css";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import dataBase from "../../database_flights.json"
+import dataBase from "../../database_flights.json";
+import UserLogin from "../user-login-icon/user-login";
 
 const name = "Gustavo";
 
@@ -9,11 +10,10 @@ function NavBar() {
   const [login, setLogin] = useState(false);
 
   const voos = dataBase.map((currentElement) => {
-    return currentElement
-  })
+    return currentElement;
+  });
 
-  console.log(voos)
-
+  console.log(voos);
 
   return (
     <div>
@@ -73,6 +73,9 @@ function NavBar() {
                 aria-disabled="true"
               >
                 Disabled
+              </Link>
+              <Link to="">
+                <UserLogin className="m-auto" />
               </Link>
             </div>
           </div>
