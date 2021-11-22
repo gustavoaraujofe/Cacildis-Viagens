@@ -1,22 +1,44 @@
-import { Clock } from 'react-feather';
-import { useState, useEffect } from 'react';
+import { Clock } from "react-feather";
+import { useState, useEffect } from "react";
 import "./timer-reservation.css";
 
 function Timer(props) {
+  const { initialMinute = 30, initialSeconds = 0 } = props;
+  const [minutes, setMinutes] = useState(initialMinute);
+  const [seconds, setSeconds] = useState(initialSeconds);
 
-    const [counter, setCounter] = useState(1800);
-    
-    useEffect(() => {
-        counter > 0 && setTimeout(() => setCounter(counter - 1), 1000);
-      }, [counter]);
-    
+  useEffect(() => {
+    let myInterval = setInterval(() => {
+      if (seconds > 0) {
+        setSeconds(seconds - 1);
+      }
+      if (seconds === 0) {
+        if (minutes === 0) {
+          clearInterval(myInterval);
+        } else {
+          setMinutes(minutes - 1);
+          setSeconds(59);
+        }
+      }
+    }, 1000);
+    return () => {
+      clearInterval(myInterval);
+    };
+  });
 
-      return (
-        <div>
-          <div className="timer"></div>
-          <Clock size={24} /> <span>{counter}</span>
-        </div>
-      );
+  return (
+    <div>
+      <Clock size={24} />
+      <span>
+        {minutes === 0 && seconds === 0 ? null : (
+          <h1>
+            {" "}
+            {minutes}:{seconds < 10 ? `0${seconds}` : seconds}
+          </h1>
+        )}
+      </span>
+    </div>
+  );
 }
 
 export default Timer;
