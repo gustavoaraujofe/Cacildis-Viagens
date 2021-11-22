@@ -5,6 +5,7 @@ import Home from "./home/Home";
 import "./App.css";
 import FlightList from "./flight-list/FlightList";
 import RegistrationPage from "../components/registration-page/registration-page";
+import ReserveList from "./reserve-list/ReserveList";
 
 function App() {
   const [login, setLogin] = useState(false);
@@ -28,7 +29,7 @@ function App() {
         <Route path="confirmacao" element="" />
         <Route path="pagamento" element="" />
         <Route path="cartao-embarque" element="" />
-        <Route path="reservas" element="" />
+        <Route path="reservas" element={<ReserveList />} />
       </Routes>
     </div>
   );
