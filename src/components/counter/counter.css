@@ -1,0 +1,49 @@
+.counter {
+    border: 1px solid #AAA;
+    outline: none;
+    padding: .5em;
+    font-family: inherit;
+    width: 30px;
+    text-align: center;
+}
+
+.counter:focus {
+    border-color: hsl(220, 16%, 15%);
+    box-shadow: 0 0 5px 0 hsl(220, 16%, 15%);
+}
+
+.btn-counter {
+    background-color: hsl(220, 16%, 15%);
+    border: 1px solid hsl(220, 16%, 05%);
+    color: hsl(218,30%,93%);
+    font-weight: 700;
+    font-family: inherit;
+    width: 25px;
+    text-align: center;
+  }
+  
+.btn-counter:hover, .btn-counter:focus {
+    background-color: hsl(220, 16%, 10%);
+    box-shadow: 0 0 5px 0 hsl(220, 16%, 05%);
+    cursor: pointer;
+    font-weight: 700;
+    font-family: inherit;
+}
+/* 
+.btn-counter {
+    background-color: hsl(218,30%,93%);
+    border: 1px solid hsl(218,30%,73%);
+    color: hsl(220, 16%, 15%);
+    font-weight: 700;
+    font-family: inherit;
+    width: 25px;
+    text-align: center;
+  }
+  
+.btn-counter:hover, .btn-counter:focus {
+    background-color: hsl(218,30%,83%);
+    box-shadow: 0 0 5px 0 hsl(218,30%,73%);
+    cursor: pointer;
+    font-weight: 700;
+    font-family: inherit;
+} */

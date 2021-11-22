@@ -1,0 +1,14 @@
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --app-pink: hsl(298, 93%, 34%);
+    --app-green: hsl(154, 100%, 48%);
+    --app-black: hsl(220, 16%, 15%);
+    --app-white: hsl(218,30%,93%);
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+}

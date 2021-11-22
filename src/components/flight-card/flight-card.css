@@ -1,0 +1,21 @@
+.btn-light {
+    background-color: hsl(218,30%,93%);
+    border: 1px solid hsl(218,30%,73%);
+    color: hsl(220, 16%, 15%);
+    padding: .5em;
+    width: 700px;
+    font-weight: 700;
+    font-family: inherit;
+  }
+  
+.btn-light:hover, .btn-light:focus {
+    background-color: hsl(218,30%,83%);
+    box-shadow: 0 0 5px 0 hsl(218,30%,73%);
+    cursor: pointer;
+}
+
+.flight{
+    background-color: blue;
+    width: 100px;
+    height: 30px;
+}

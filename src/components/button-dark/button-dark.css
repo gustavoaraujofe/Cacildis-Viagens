@@ -1,0 +1,15 @@
+.btn-dark {
+    background-color: hsl(220, 16%, 15%);
+    border: 1px solid hsl(220, 16%, 05%);
+    color: white;
+    padding: .5em;
+    width: 200px;
+    font-weight: 700;
+    font-family: inherit;
+  }
+  
+.btn-dark:hover, .btn-dark:focus {
+    background-color: hsl(220, 16%, 10%);
+    box-shadow: 0 0 5px 0 hsl(220, 16%, 05%);
+    cursor: pointer;
+}
