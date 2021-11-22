@@ -5,6 +5,7 @@ import Home from "./home/Home";
 import "./App.css";
 import FlightList from "./flight-list/FlightList";
 import RegistrationPage from "../components/registration-page/registration-page";
+import RegistrationEdit from "../components/registration-edit/registration-edit";
 
 function App() {
   const [login, setLogin] = useState(false);
@@ -23,7 +24,7 @@ function App() {
         <Route path="/" element={<Home dadosVoos={dadosVoos} setDadosVoos={setDadosVoos} />} />
         <Route path=":flight-list" element={<FlightList dadosVoos={dadosVoos}/>} />
         <Route path="cadastro" element={<RegistrationPage />} />
-        <Route path="editar-cadastro" element="" />
+        <Route path="editar-cadastro" element={<RegistrationEdit />} />
         <Route path="login" element="" />
         <Route path="confirmacao" element="" />
         <Route path="pagamento" element="" />
