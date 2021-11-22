@@ -1,19 +1,13 @@
 import "./NavBar.css";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import dataBase from "../../database_flights.json";
 import UserLogin from "../user-login-icon/user-login";
+
 
 const name = "Gustavo";
 
 function NavBar() {
   const [login, setLogin] = useState(false);
-
-  const voos = dataBase.map((currentElement) => {
-    return currentElement;
-  });
-
-  console.log(voos);
 
   return (
     <div>
