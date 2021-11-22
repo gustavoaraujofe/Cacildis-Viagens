@@ -2,8 +2,9 @@ import FlightCard from "../flight-card/flight-card";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import LoadingBar from "../loading-bar/loading";
+import NavBar from "../navbar/NavBar";
 
-function FlightList() {
+function FlightList(props) {
   const [flights, setFlights] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -16,7 +17,7 @@ function FlightList() {
         setFlights([...response.data]);
         setTimeout(() => {
           setLoading(false);
-        }, 3000);
+        }, 2000);
       } catch (err) {
         console.log(err);
       }
@@ -25,14 +26,19 @@ function FlightList() {
     flightList();
   }, []);
 
+  flights.filter(() => {
+    return 
+  })
+
+
   return (
     <div>
+      <NavBar pag="Lista de Voos" backButton="/"/>
       {loading ? (
         <LoadingBar />
       ) : (
         <div>
           {flights.map((currentElement) => {
-            console.log(currentElement.airlines);
             return (
               <FlightCard
                 key={currentElement._id}

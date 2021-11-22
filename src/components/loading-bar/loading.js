@@ -1,7 +1,7 @@
 import { FaPlane } from "react-icons/fa";
 import "./loading.css";
 
-function Loading(props) {
+function Loading() {
   return (
     <div>
       <div className="loading-bar">
