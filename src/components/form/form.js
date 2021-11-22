@@ -9,6 +9,7 @@ function Form(props) {
     <form onSubmit={props.handleSubmit}>
       Nome Completo
       <InputTexto />
+
       {/* Input Gênero */}
       <InputSelect
         label="Gênero"
@@ -42,9 +43,8 @@ function Form(props) {
         name="password"
         onChange={props.handleChange}
         value={props.formData.password}
-        // Bloqueia a entrega caso a senha não atenda os requisitos mínimos (8 caracteres, conter letra maiúscula e minúscula, conter números e caracteres especiais)
-        pattern="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,}$"
       />
+      
       {/* Input Data Nascimento */}
       <FormField
         label="Date of Birth"
@@ -67,7 +67,7 @@ function Form(props) {
         }
         checked={props.formData.acceptedTerms}
       />
-      {/* IMPORTANTE: o botão de entrega do formulário precisa estar DENTRO da tag <form> e precisa ter seu atributo 'type' setado para 'submit' */}
+     
       <div className="mt-3 text-end">
         <button
           disabled={props.isSending}

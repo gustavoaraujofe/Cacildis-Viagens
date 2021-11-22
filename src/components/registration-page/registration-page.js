@@ -5,13 +5,12 @@ import Form from "../form/form";
 import ButtonPink from "../button-pink/button-pink";
 import NavBar from "../navbar/NavBar";
 
-function RegistrationPage(props) {
+function RegistrationPage() {
     const [formData, setFormData] = useState({
       genero: "",
       email: "",
       password: "",
       birthDate: "11/01/1965",
-      acceptedTerms: false,
     });
     const [isSending, setIsSending] = useState(false);
 
@@ -21,11 +20,6 @@ function RegistrationPage(props) {
 
     function handleSubmit(event) {
       event.preventDefault();
-
-      if (!formData.acceptedTerms) {
-        alert("Você precisa aceitar os Termos e Condições antes de continuar.");
-        return;
-      }
 
       setIsSending(true);
 
@@ -46,6 +40,7 @@ function RegistrationPage(props) {
 
     return (
       <>
+        <NavBar pag="Página de Cadastro" backButton="/"/>
         <Form
           handleChange={handleChange}
           handleSubmit={handleSubmit}
@@ -53,8 +48,6 @@ function RegistrationPage(props) {
           setFormData={setFormData}
           isSending={isSending}
         />
-        <NavBar />
-        <Form />
         <ButtonPink />
       </>
     );
