@@ -1,9 +1,10 @@
-import 'bootstrap/dist/css/bootstrap.min.css';
+import "bootstrap/dist/css/bootstrap.min.css";
 import { Routes, Route } from "react-router-dom";
 import {useState} from "react"
 import Home from "./home/Home";
 import "./App.css";
-import FlightList from './flight-list/FlightList';
+import FlightList from "./flight-list/FlightList";
+import RegistrationPage from "../components/registration-page/registration-page";
 
 function App() {
   const [login, setLogin] = useState(false);
@@ -21,7 +22,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home dadosVoos={dadosVoos} setDadosVoos={setDadosVoos} />} />
         <Route path=":flight-list" element={<FlightList dadosVoos={dadosVoos}/>} />
-        <Route path="cadastro" element="" />
+        <Route path="cadastro" element={<RegistrationPage />} />
         <Route path="editar-cadastro" element="" />
         <Route path="login" element="" />
         <Route path="confirmacao" element="" />
