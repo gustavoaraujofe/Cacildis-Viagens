@@ -11,11 +11,11 @@ function Counter(props) {
 
   return (
     <div>
-      <button className="counter btn-counter" onClick={decreaseCount}>-</button>
+      <button className="counter btn-counter left" onClick={decreaseCount}>-</button>
       <label>
         <input className="counter" type="text" name="name" value={clickCount} />
       </label>
-      <button className="counter btn-counter" onClick={increaseCount}>+</button>
+      <button className="counter btn-counter right" onClick={increaseCount}>+</button>
     </div>
   );
 }

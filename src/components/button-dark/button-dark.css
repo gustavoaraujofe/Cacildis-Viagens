@@ -6,6 +6,7 @@
     width: 200px;
     font-weight: 700;
     font-family: inherit;
+    border-radius: 5px;
   }
   
 .btn-dark:hover, .btn-dark:focus {
