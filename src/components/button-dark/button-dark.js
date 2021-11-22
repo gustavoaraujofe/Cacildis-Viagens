@@ -1,12 +1,13 @@
 import "./button-dark.css";
+import { Link } from "react-router-dom";
 
 function ButtonDark(props) {
   return (
-    <div>
+    <Link to={props.to}>
       <button className='btn-dark'>
         {props.content}
         </button>
-    </div>
+    </Link>
   );
 }
 
