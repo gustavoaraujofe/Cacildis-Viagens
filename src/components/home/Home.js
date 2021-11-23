@@ -37,7 +37,7 @@ function Home(props) {
     props.dadosVoos.data !== ""
   ) {
     if (props.dadosVoos.origem !== props.dadosVoos.destino) {
-      to = "flight-list";
+      to = "/voos";
     }
   }
 
@@ -51,11 +51,11 @@ function Home(props) {
     <div className="h-100">
       <img src={imgBackground} alt="background" className="background" />
 
-      <NavBar pag="Home" backButton="/" />
+      <NavBar pag="Home" backButton="/" opacity="opacity-75" />
       <div className="blockHome d-flex justify-content-center flex-column ms-2 me-2 mt-5">
-        <div className="container d-flex align-items-center justify-content-center bg-opacity pt-3 pb-3">
-          <div>
-            <div className="mb-5 pt-4">
+        <div className="container d-flex align-items-center justify-content-center bg-opacity pt-3 pb-3 h-100">
+          <div className="d-flex flex-column justify-content-between pt-3">
+            <div className="h-75">
               <HomeTitle />
             </div>
             <InputSelect

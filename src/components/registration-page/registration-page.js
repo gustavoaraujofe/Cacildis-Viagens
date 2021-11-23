@@ -11,6 +11,8 @@ function RegistrationPage() {
     email: "",
     password: "",
     birthDate: "11/01/1965",
+    acceptedTerms: false,
+    listaVoos: [],
   });
   const [isSending, setIsSending] = useState(false);
   function handleChange(event) {
@@ -30,6 +32,8 @@ function RegistrationPage() {
         setIsSending(false);
       });
   }
+
+  console.log(formData);
   return (
     <>
       <NavBar pag="Página de Cadastro" backButton="/" />
@@ -40,10 +44,6 @@ function RegistrationPage() {
         setFormData={setFormData}
         isSending={isSending}
       />
-      <button className="btn-pink" disabled={isSending} type="submit">
-        {isSending ? <span role="status" aria-hidden="true"></span> : null}
-        Cadastrar
-      </button>
     </>
   );
 }

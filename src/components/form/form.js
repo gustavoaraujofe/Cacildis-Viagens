@@ -9,7 +9,11 @@ function Form(props) {
   return (
     <form onSubmit={props.handleSubmit}>
       Nome Completo:
-      <InputTexto />
+      <InputTexto
+        onChange={props.handleChange}
+        value={props.formData.nome}
+        required={true}
+      />
       {/* Input Gênero */}
       <InputSelect
         label="Como gostaria de ser chamado:"
@@ -18,6 +22,7 @@ function Form(props) {
         onChange={props.handleChange}
         value={props.formData.genero}
       >
+        <option value="" disabled></option>
         <option value="Mulher">Sra.</option>
         <option value="Homem">Sr.</option>
         <option value="Outro">Prefiro não dizer</option>
@@ -30,7 +35,7 @@ function Form(props) {
         name="email"
         onChange={props.handleChange}
         value={props.formData.email}
-        required
+        required={true}
       />
       {/* Input senha */}
       <FormField
@@ -40,6 +45,7 @@ function Form(props) {
         name="password"
         onChange={props.handleChange}
         value={props.formData.password}
+        required={true}
       />
       {/* Input Data Nascimento */}
       <FormField
@@ -49,6 +55,7 @@ function Form(props) {
         name="birthDate"
         onChange={props.handleChange}
         value={props.formData.birthDate}
+        required={true}
       />
       {/* Input Termos e Condições  */}
       <CheckboxInput
@@ -62,8 +69,14 @@ function Form(props) {
           })
         }
         checked={props.formData.acceptedTerms}
+        required={true}
       />
-      
+      <button className="btn-pink" disabled={props.isSending} type="submit">
+        {props.isSending ? (
+          <span role="status" aria-hidden="true"></span>
+        ) : null}
+        Cadastrar
+      </button>
     </form>
   );
 }
