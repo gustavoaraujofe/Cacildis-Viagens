@@ -74,13 +74,6 @@ function NavBar(props) {
               <Link to="/cadastro" className="nav-link text-white" href="#">
                 Meu Cadastro
               </Link>
-              <Link
-                to=""
-                className="nav-link text-white"
-                onClick={() => displayLogin()}
-              >
-                Login
-              </Link>
               <div className="m-1" onClick={() => displayLogin()}>
                 <FaRegUserCircle style={{ color: "white" }} size={24} />
               </div>

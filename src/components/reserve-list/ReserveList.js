@@ -3,6 +3,8 @@ import FlightCard from "../flight-card/flight-card";
 import axios from "axios";
 import Loading from "../loading-bar/loading";
 import NavBar from "../navbar/NavBar";
+import BoardingPass from "../boarding-pass/boarding-pass";
+import { Link } from "react-router-dom";
 
 let reserveId = [
   "619b94b521b7950017ceeab1",
@@ -51,24 +53,24 @@ function ReserveList() {
   return (
     <div>
       <NavBar pag="Minhas Reservas" backButton="/" />
-      {loading ? (
-        null
-      ) : reserveList.length === 0 ? (
+      {loading ? null : reserveList.length === 0 ? (
         <p className="text-center mt-5">Não existe voos em sua lista</p>
       ) : (
         reserveList.map((currentElement) => {
           return (
-            <FlightCard
-              key={currentElement._id}
-              img={currentElement.airlines.split(",")[0]}
-              departure_time={currentElement.departure_time}
-              arrival_time={currentElement.arrival_time}
-              trip_duration={currentElement.trip_duration}
-              departure_airport_code={currentElement.departure_airport_code}
-              arrival_airport_code={currentElement.arrival_airport_code}
-              num_stops={currentElement.num_stops}
-              price={currentElement.price}
-            />
+            <Link to={currentElement._id}>
+              <FlightCard
+                key={currentElement._id}
+                img={currentElement.airlines.split(",")[0]}
+                departure_time={currentElement.departure_time}
+                arrival_time={currentElement.arrival_time}
+                trip_duration={currentElement.trip_duration}
+                departure_airport_code={currentElement.departure_airport_code}
+                arrival_airport_code={currentElement.arrival_airport_code}
+                num_stops={currentElement.num_stops}
+                price={currentElement.price}
+              />
+            </Link>
           );
         })
       )}
