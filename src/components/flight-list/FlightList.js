@@ -21,6 +21,28 @@ function FlightList(props) {
     });
   }
 
+  function reOrder(type) {
+    let tempOrder;
+    if (type === "price") {
+      const flightsClone = [...flights];
+      tempOrder = flightsClone.sort((a, b) => {
+        return a.price - b.price;
+      });
+    } else if (type === "time") {
+      const flightsClone = [...flights];
+      tempOrder = flightsClone.sort((a, b) => {
+        let durationHrA = a.trip_duration.split("hr")[0] * 60;
+        let durationMinA = a.trip_duration.split("hr")[1].split(" ")[1];
+        let durationHrB = b.trip_duration.split("hr")[0] * 60;
+        let durationMinB = b.trip_duration.split("hr")[1].split(" ")[1];
+
+        return durationHrA + durationMinA - (durationHrB + durationMinB);
+      });
+    }
+
+    setFlights(tempOrder);
+  }
+
   useEffect(() => {
     async function flightList() {
       try {
@@ -98,6 +120,18 @@ function FlightList(props) {
                 onClick={() => setRefresh(!refresh)}
               />
             </div>
+            <button
+              className="btn btn-dark mt-2"
+              onClick={() => reOrder("price")}
+            >
+              Ordenar por menor preço
+            </button>
+            <button
+              className="btn btn-dark mt-2"
+              onClick={() => reOrder("time")}
+            >
+              Ordenar por menor tempo
+            </button>
           </div>
           {flights.length === 0 ? (
             <p className="text-center mt-5">Voo não encontrado...</p>

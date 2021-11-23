@@ -18,7 +18,6 @@ function App() {
     qtdPessoas: 0,
   });
  
-
   return (
     <div className="h-100">
       <Routes>

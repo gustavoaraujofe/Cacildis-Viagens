@@ -82,7 +82,7 @@ function NavBar(props) {
         </div>
       </nav>
       <div className="text-end me-3">
-        <Login display={linkLogin} />
+        <Login display={linkLogin} align="end" />
       </div>
     </div>
   );

@@ -11,6 +11,11 @@ function BoardingPass() {
   const [loading, setLoading] = useState([]);
   const [user, setUser] = useState([]);
 
+  const params = useParams();
+  const idFlight = params.id.split("&")[0];
+  const idUser = params.id.split("&")[1];
+  
+
   useEffect(() => {
     async function flightList() {
       try {

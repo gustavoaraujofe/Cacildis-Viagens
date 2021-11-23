@@ -14,6 +14,7 @@ function RegistrationPage() {
     acceptedTerms: false,
     listaVoos: []
   });
+
   const [isSending, setIsSending] = useState(false);
   function handleChange(event) {
     setFormData({ ...formData, [event.target.name]: event.target.value });
@@ -33,6 +34,7 @@ function RegistrationPage() {
       });
   }
 
+  console.log(formData)
   return (
     <>
       <NavBar pag="Meu Cadastro" backButton="/" />

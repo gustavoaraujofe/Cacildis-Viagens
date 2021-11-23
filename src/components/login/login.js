@@ -1,31 +1,31 @@
 function Login(props) {
   return (
     <div
-      className={`d-flex justify-content-end mt-1 ${
+      className={`d-flex justify-content-${props.align} mt-1 ${
         props.display === false ? "d-none" : null
       }`}
     >
-      <form className="row g-3">
+      <form className="row g-3" onSubmit={props.handleSubmit}>
         <div className="col-auto">
-          <label htmlFor="staticEmail2" className="visually-hidden">
+          <label className="visually-hidden">
             Email
           </label>
           <input
             type="text"
             className="form-control"
-            id="staticEmail2"
             placeholder="nome@email.com"
+            value={props.value}
+            onChange={props.onChange}
           />
         </div>
         <div className="col-auto">
-          <label htmlFor="inputPassword2" className="visually-hidden">
+          <label className="visually-hidden">
             Password
           </label>
           <input
             type="password"
             className="form-control"
-            id="inputPassword2"
-            placeholder="senha"
+            placeholder="Senha"
           />
         </div>
         <div className="col-auto">

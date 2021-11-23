@@ -3,20 +3,50 @@ import FlightCard from "../flight-card/flight-card";
 import axios from "axios";
 import Loading from "../loading-bar/loading";
 import NavBar from "../navbar/NavBar";
-import BoardingPass from "../boarding-pass/boarding-pass";
-import { Link } from "react-router-dom";
-
-let reserveId = [
-  "619b94b521b7950017ceeab1",
-  "619b957d21b7950017ceeab9",
-  "619b957d21b7950017ceeabd",
-  "619b957d21b7950017ceeac3",
-];
+import Login from "../login/login";
+import {Link} from "react-router-dom"
 
 function ReserveList() {
   const [flights, setFlights] = useState([]);
   const [loading, setLoading] = useState(true);
   const [reserveList, setReserveList] = useState([]);
+  const [user, setUser] = useState([]);
+  const [email, setEmail] = useState("");
+  const [userEmail, setUserEmail] = useState("");
+
+  function handleChange(event) {
+    setEmail(event.target.value);
+  }
+
+  function handleSubmit(event) {
+    event.preventDefault();
+    setUserEmail(email);
+  }
+
+  useEffect(() => {
+    async function infoUser() {
+      try {
+        const response = await axios.get(
+          "https://ironrest.herokuapp.com/cacildis-viagens-users"
+        );
+
+        if (userEmail.length > 0) {
+          let filtred = response.data.filter((currentElement) => {
+            return currentElement.email === userEmail;
+          });
+
+          if (filtred.length) {
+            setUser(filtred[0]);
+          } else {
+            alert("Usuário não cadastrado");
+          }
+        }
+      } catch (err) {
+        console.error(err);
+      }
+    }
+    infoUser();
+  }, [userEmail]);
 
   useEffect(() => {
     async function flightList() {
@@ -40,25 +70,38 @@ function ReserveList() {
 
   useEffect(() => {
     let list = [];
-    for (let i = 0; i < reserveId.length; i++) {
+    if(user.listaVoos !== undefined) {
+    for (let i = 0; i < user.listaVoos.length; i++) {
       flights.forEach((currentElement) => {
-        if (currentElement._id === reserveId[i]) {
+        if (currentElement._id === user.listaVoos[i]) {
           list.push(currentElement);
         }
       });
     }
     setReserveList(list);
-  }, [flights]);
+  }
+  }, [user, flights]);
 
+  
   return (
-    <div>
+    <div className="h-100">
       <NavBar pag="Minhas Reservas" backButton="/" />
-      {loading ? null : reserveList.length === 0 ? (
-        <p className="text-center mt-5">Não existe voos em sua lista</p>
+      {userEmail === "" ? (
+        <div className=" mt-3 container">
+          <Login
+            onChange={handleChange}
+            handleSubmit={handleSubmit}
+            align="center"
+          />
+        </div>
+      ) : loading ? (
+        <Loading />
+      ) : reserveList.length === 0 ? (
+        <p className="text-center mt-5">Não existem voos em sua lista</p>
       ) : (
         reserveList.map((currentElement) => {
           return (
-            <Link to={currentElement._id}>
+            <Link to={`${currentElement._id}&${user._id}`}>
               <FlightCard
                 key={currentElement._id}
                 img={currentElement.airlines.split(",")[0]}
