@@ -1,0 +1,20 @@
+.btn-middle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 25px 0;
+}
+
+.btn {
+    margin-top: 5px;
+}
+
+.texto {
+    margin-top: 15px;
+}
+
+.btn-light {
+    margin: 10px 0;
+    /* display: flex;
+    justify-content: center; */
+}

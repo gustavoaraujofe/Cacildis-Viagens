@@ -14,7 +14,7 @@ function Login(props) {
             type="text"
             className="form-control"
             id="staticEmail2"
-            value="email@example.com"
+            placeholder="nome@email.com"
           />
         </div>
         <div className="col-auto">
@@ -25,11 +25,11 @@ function Login(props) {
             type="password"
             className="form-control"
             id="inputPassword2"
-            placeholder="Password"
+            placeholder="senha"
           />
         </div>
         <div className="col-auto">
-          <button type="submit" className="btn btn-primary mb-3">
+          <button type="submit" className="btn btn-dark mb-3">
             Logar
           </button>
         </div>

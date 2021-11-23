@@ -36,7 +36,11 @@ function NavBar(props) {
               ></i>
             </Link>
           </div>
-          <h2 className="navbar-brand text-white navbar-toggler border-0 mb-0">
+          <h2
+            className={`${
+              props.pag === "Home" ? "d-none" : null
+            } navbar-brand text-white navbar-toggler border-0 mb-0`}
+          >
             {props.pag}
           </h2>
 
@@ -64,18 +68,11 @@ function NavBar(props) {
               >
                 Home
               </Link>
-              <Link to="reservas" className="nav-link text-white" href="#">
+              <Link to="/reservas" className="nav-link text-white" href="#">
                 Minhas Reservas
               </Link>
-              <Link to="" className="nav-link text-white" href="#">
-                Pricing
-              </Link>
-              <Link
-                to=""
-                className="nav-link text-white"
-                onClick={() => displayLogin()}
-              >
-                Login
+              <Link to="/cadastro" className="nav-link text-white" href="#">
+                Meu Cadastro
               </Link>
               <div className="m-1" onClick={() => displayLogin()}>
                 <FaRegUserCircle style={{ color: "white" }} size={24} />

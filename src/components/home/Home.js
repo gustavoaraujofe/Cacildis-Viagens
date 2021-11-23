@@ -51,7 +51,13 @@ function Home(props) {
     <div className="h-100">
       <img src={imgBackground} alt="background" className="background" />
 
-      <NavBar pag="Home" backButton="/" opacity="opacity-75" login={props.login} setLogin={props.login}/>
+      <NavBar
+        pag="Home"
+        backButton="/"
+        opacity="opacity-75"
+        login={props.login}
+        setLogin={props.login}
+      />
       <div className="blockHome d-flex justify-content-center flex-column ms-2 me-2 mt-5">
         <div className="container d-flex align-items-center justify-content-center bg-opacity pt-3 pb-3 h-100">
           <div className="d-flex flex-column justify-content-between pt-3">
@@ -105,7 +111,7 @@ function Home(props) {
                 decreaseCount={decreaseCount}
               />
             </div>
-            <div className="mt-4 pb-4">
+            <div className="mt-4 pb-4 btn-home">
               <ButtonDark content="Buscar" to={to} onClick={landingPage} />
             </div>
           </div>

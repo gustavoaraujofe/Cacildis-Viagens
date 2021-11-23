@@ -1,3 +1,4 @@
+import "./FlightList.css";
 import FlightCard from "../flight-card/flight-card";
 import { useEffect, useState } from "react";
 import axios from "axios";
@@ -37,7 +38,7 @@ function FlightList(props) {
 
         setTimeout(() => {
           setLoading(false);
-        }, 7000);
+        }, 6500);
       } catch (err) {
         console.log(err);
       }
@@ -53,7 +54,7 @@ function FlightList(props) {
         <LoadingBar />
       ) : (
         <div>
-          <div>
+          <div className="texto">
             <InputSelect
               label="Origem"
               id="origem"
@@ -90,11 +91,13 @@ function FlightList(props) {
               onChange={handleChange}
               value={props.dadosVoos.data}
             />
-            <ButtonDark
-              content="Buscar"
-              to="/voos"
-              onClick={() => setRefresh(!refresh)}
-            />
+            <div className="btn-middle">
+              <ButtonDark
+                content="Buscar"
+                to="/voos"
+                onClick={() => setRefresh(!refresh)}
+              />
+            </div>
           </div>
           {flights.length === 0 ? (
             <p className="text-center mt-5">Voo não encontrado...</p>

@@ -1,0 +1,3 @@
+.form-check-input:checked {
+    background-color: hsl(220, 16%, 15%);
+}

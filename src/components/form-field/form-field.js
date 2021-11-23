@@ -7,7 +7,7 @@ function FormField(props) {
         </label>
         <input
           type={props.type}
-          className="form-control"
+          className="w-100 form-control"
           id={props.id}
           name={props.name}
           onChange={props.onChange}
