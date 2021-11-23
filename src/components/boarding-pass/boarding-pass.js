@@ -9,7 +9,7 @@ function BoardingPass() {
   const flightId = useParams();
   const [flights, setFlights] = useState([]);
   const [loading, setLoading] = useState([]);
-  
+
   useEffect(() => {
     async function flightList() {
       try {
@@ -32,7 +32,7 @@ function BoardingPass() {
 
   return (
     <div>
-      <NavBar pag="Boarding" backButton="/reservas" />
+      <NavBar pag="Boarding Pass" backButton="/reservas" />
       {loading ? null : flights.length === 0 ? (
         <p className="text-center mt-5">Não existe voos para confirmar</p>
       ) : (

@@ -3,12 +3,13 @@ import FormField from "../form-field/form-field";
 import CheckboxInput from "../input-checkbox/input-checkbox";
 import InputSelect from "../input-select/InputSelect";
 import InputTexto from "../input-texto/input-texto";
+import "../button-pink/button-pink.css";
 
 function Form(props) {
   return (
     <form onSubmit={props.handleSubmit}>
-      Nome Completo:
       <InputTexto
+        label="Nome Completo:"
         name="nome"
         onChange={props.handleChange}
         value={props.formData.nome}
@@ -71,12 +72,14 @@ function Form(props) {
         checked={props.formData.acceptedTerms}
         required={true}
       />
-      <button className="btn-pink" disabled={props.isSending} type="submit">
-        {props.isSending ? (
-          <span role="status" aria-hidden="true"></span>
-        ) : null}
-        Cadastrar
-      </button>
+      <div className="btn-middle">
+        <button className="btn-pink" disabled={props.isSending} type="submit">
+          {props.isSending ? (
+            <span role="status" aria-hidden="true"></span>
+          ) : null}
+          Cadastrar
+        </button>
+      </div>
     </form>
   );
 }

@@ -2,8 +2,16 @@ import "./NavBar.css";
 import { Link } from "react-router-dom";
 import LogoTexto from "../logo-texto/logo-texto";
 import { FaRegUserCircle } from "react-icons/fa";
+import Login from "../login/login";
+import { useState } from "react";
 
 function NavBar(props) {
+  const [linkLogin, setLinkLogin] = useState(false);
+
+  function displayLogin() {
+    setLinkLogin(!linkLogin);
+  }
+
   return (
     <div className={props.opacity}>
       <nav
@@ -28,7 +36,11 @@ function NavBar(props) {
               ></i>
             </Link>
           </div>
-          <h2 className="navbar-brand text-white navbar-toggler border-0 mb-0">
+          <h2
+            className={`${
+              props.pag === "Home" ? "d-none" : null
+            } navbar-brand text-white navbar-toggler border-0 mb-0`}
+          >
             {props.pag}
           </h2>
 
@@ -56,31 +68,29 @@ function NavBar(props) {
               >
                 Home
               </Link>
-              <Link to="reservas" className="nav-link text-white" href="#">
+              <Link to="/reservas" className="nav-link text-white" href="#">
                 Minhas Reservas
               </Link>
-              <Link to="" className="nav-link text-white" href="#">
-                Pricing
+              <Link to="/cadastro" className="nav-link text-white" href="#">
+                Meu Cadastro
               </Link>
               <Link
                 to=""
-                className="nav-link disabled text-white"
-                href="#"
-                tabIndex="-1"
-                aria-disabled="true"
+                className="nav-link text-white"
+                onClick={() => displayLogin()}
               >
-                Disabled
+                Login
               </Link>
-
-              <Link to="">
-                <div className="m-1">
-                  <FaRegUserCircle style={{ color: "white" }} size={24} />
-                </div>
-              </Link>
+              <div className="m-1" onClick={() => displayLogin()}>
+                <FaRegUserCircle style={{ color: "white" }} size={24} />
+              </div>
             </div>
           </div>
         </div>
       </nav>
+      <div className="text-end me-3">
+        <Login display={linkLogin} />
+      </div>
     </div>
   );
 }
