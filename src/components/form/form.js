@@ -48,7 +48,7 @@ function Form(props) {
         type="date"
         name="birthDate"
         onChange={props.handleChange}
-        value={new Date(props.formData.birthDate).toISOString().slice(0, 10)}
+        value={props.formData.birthDate}
       />
       {/* Input Termos e Condições  */}
       <CheckboxInput
