@@ -17,7 +17,11 @@ function NavBar(props) {
           </Link>
           <div className="navbar-toggler rounded-circle border-0">
             <Link to={props.backButton}>
-              <i className="fa fa-angle-left fa-lg text-white"></i>
+              <i
+                className={` ${
+                  props.pag === "Home" ? "opacity-0" : null
+                } fa fa-angle-left fa-lg text-white`}
+              ></i>
             </Link>
           </div>
           <h2 className="navbar-brand text-white navbar-toggler border-0 mb-0">
@@ -41,7 +45,7 @@ function NavBar(props) {
           >
             <div className="navbar-nav">
               <Link
-                to=""
+                to="/"
                 className="nav-link text-white"
                 aria-current="page"
                 href="#"
