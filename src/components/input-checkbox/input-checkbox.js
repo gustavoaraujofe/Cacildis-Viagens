@@ -1,6 +1,8 @@
+import "./input-checkbox.css"
+
 function CheckboxInput(props) {
     return (
-        <div className="form-check">
+        <div className="form-check mb-3">
           <input
             className="form-check-input"
             type="checkbox"

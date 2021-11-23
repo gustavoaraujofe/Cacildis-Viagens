@@ -16,3 +16,15 @@
     height: 100vh;
     object-fit: cover
 }
+
+.btn-home {
+    display: flex;
+    justify-content: center;
+}
+
+.passageiros {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}

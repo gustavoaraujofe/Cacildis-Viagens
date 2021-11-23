@@ -12,7 +12,7 @@ function RegistrationPage() {
     password: "",
     birthDate: "11/01/1965",
     acceptedTerms: false,
-    listaVoos: [],
+    listaVoos: []
   });
 
   const [isSending, setIsSending] = useState(false);
@@ -37,7 +37,7 @@ function RegistrationPage() {
   console.log(formData)
   return (
     <>
-      <NavBar pag="Página de Cadastro" backButton="/" />
+      <NavBar pag="Meu Cadastro" backButton="/" />
       <Form
         handleChange={handleChange}
         handleSubmit={handleSubmit}

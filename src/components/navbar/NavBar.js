@@ -71,8 +71,8 @@ function NavBar(props) {
               <Link to="/reservas" className="nav-link text-white" href="#">
                 Minhas Reservas
               </Link>
-              <Link to="" className="nav-link text-white" href="#">
-                Pricing
+              <Link to="/cadastro" className="nav-link text-white" href="#">
+                Meu Cadastro
               </Link>
               <div className="m-1" onClick={() => displayLogin()}>
                 <FaRegUserCircle style={{ color: "white" }} size={24} />

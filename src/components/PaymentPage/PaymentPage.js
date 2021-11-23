@@ -6,12 +6,12 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import CreditCardInput from "react-credit-card-input";
 import "./PaymentPage.css"
+import "../button-pink/button-pink"
 
 function FlightConfirmation() {
   const flightId = useParams();
   const [flights, setFlights] = useState([]);
   const [loading, setLoading] = useState([]);
-
 
   useEffect(() => {
     async function flightList() {
@@ -43,6 +43,7 @@ function FlightConfirmation() {
       ) : (
         <div>
           <Timer />
+          Garanta já o seu voo! A oferta abaixo ficará disponível por apenas 30 minutos. 
           <FlightCard
             key={flights[0]._id}
             img={flights[0].airlines.split(",")[0]}
@@ -55,6 +56,7 @@ function FlightConfirmation() {
             price={flights[0].price}
           />
           <div>
+            Insira os dados do cartão de crédito:
       <CreditCardInput
         onError={({ inputName, err }) =>
           console.log(`credit card input error: ${err}`)
@@ -94,8 +96,9 @@ function FlightConfirmation() {
         }}
       />
     </div>
+    
           <button className="btn-pink">Fazer o Pagamento</button>
-        </div>
+    </div>
       )}
     </div>
   );

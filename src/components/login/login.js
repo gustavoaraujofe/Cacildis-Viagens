@@ -13,7 +13,7 @@ function Login(props) {
           <input
             type="text"
             className="form-control"
-            placeholder="email@email.com"
+            placeholder="nome@email.com"
             value={props.value}
             onChange={props.onChange}
           />
@@ -25,11 +25,11 @@ function Login(props) {
           <input
             type="password"
             className="form-control"
-            placeholder="Password"
+            placeholder="Senha"
           />
         </div>
         <div className="col-auto">
-          <button type="submit" className="btn btn-primary mb-3">
+          <button type="submit" className="btn btn-dark mb-3">
             Logar
           </button>
         </div>
