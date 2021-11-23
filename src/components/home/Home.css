@@ -1,0 +1,20 @@
+.blockHome {
+    height: 80%;
+}
+
+.bg-opacity {
+    background-color: white;
+    opacity: 0.875;
+    border-radius: 15px;
+    max-width: 700px;
+    min-width: 200px;
+    max-height: 100%;
+}
+
+.background{
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    object-fit:cover
+}
+

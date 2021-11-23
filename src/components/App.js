@@ -9,7 +9,6 @@ import RegistrationPage from "./registration-page/registration-page";
 import RegistrationEdit from "./registration-edit/registration-edit";
 import FlightConfirmation from "./flight-confirmation/flight-confirmation";
 
-
 function App() {
   const [login, setLogin] = useState(false);
   const [dadosVoos, setDadosVoos] = useState({
@@ -19,10 +18,9 @@ function App() {
     qtdPessoas: 0,
   });
   const [passagens, setPassagens] = useState([]);
-  console.log(dadosVoos);
 
   return (
-    <div>
+    <div className="h-100">
       <Routes>
         <Route
           path="/"

@@ -4,9 +4,9 @@ import { Link } from "react-router-dom";
 function ButtonDark(props) {
   return (
     <Link to={props.to}>
-      <button className='btn-dark' onClick={props.onClick}>
+      <button className="btn-dark" onClick={props.onClick}>
         {props.content}
-        </button>
+      </button>
     </Link>
   );
 }
