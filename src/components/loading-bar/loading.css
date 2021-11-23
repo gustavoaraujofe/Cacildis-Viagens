@@ -3,3 +3,19 @@
     width: 100vw;
     box-shadow: 0 0 3px 0 black;
 }
+
+.plane {
+    height: 100%;
+    animation: progress-animation 3s ease-in-out;
+}
+
+@keyframes progress-animation {
+    0% {
+        margin-left: 0%;
+    }
+
+    100% {
+        margin-left: 100%;
+        color: white
+    }
+}
