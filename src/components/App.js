@@ -11,14 +11,13 @@ import PaymentPage from "./PaymentPage/PaymentPage";
 import BoardingPass from "./boarding-pass/boarding-pass";
 
 function App() {
-  const [login, setLogin] = useState(false);
   const [dadosVoos, setDadosVoos] = useState({
     origem: "",
     destino: "",
     data: "",
     qtdPessoas: 0,
   });
-  const [passagens, setPassagens] = useState([]);
+ 
 
   return (
     <div className="h-100">

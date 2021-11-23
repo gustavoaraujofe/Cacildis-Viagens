@@ -3,13 +3,15 @@ import FormField from "../form-field/form-field";
 import CheckboxInput from "../input-checkbox/input-checkbox";
 import InputSelect from "../input-select/InputSelect";
 import InputTexto from "../input-texto/input-texto";
-import ButtonPink from "../button-pink/button-pink";
+import "../button-pink/button-pink.css"
+
 
 function Form(props) {
   return (
     <form onSubmit={props.handleSubmit}>
       Nome Completo:
       <InputTexto
+        name="nome"
         onChange={props.handleChange}
         value={props.formData.nome}
         required={true}
