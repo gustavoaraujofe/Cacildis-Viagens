@@ -3,8 +3,6 @@ import "./input-data.css";
 function InputData(props) {
   return (
     <div>
-      
-
       <label htmlFor={props.id} className="form-label ">{props.label}</label>
       <input
         className="form-control"
