@@ -23,8 +23,8 @@ function RegistrationPage() {
     setIsSending(true);
     axios
       .post("https://ironrest.herokuapp.com/cacildis-viagens-users", formData)
-      .then((response) => {
-        console.log(response);
+      .then(() => {
+
         setIsSending(false);
       })
       .catch((err) => {
@@ -33,7 +33,6 @@ function RegistrationPage() {
       });
   }
 
-  console.log(formData);
   return (
     <>
       <NavBar pag="Página de Cadastro" backButton="/" />
