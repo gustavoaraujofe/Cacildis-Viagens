@@ -11,7 +11,6 @@ function InputTexto(props) {
             value={props.value}
             name={props.name}
             id={props.id}
-            value={props.value}
             onChange={props.onChange}
             checked={props.checked}
             required={props.required}
