@@ -1,12 +1,16 @@
 import "./NavBar.css";
 import { Link } from "react-router-dom";
-import UserLogin from "../user-login-icon/user-login";
 import LogoTexto from "../logo-texto/logo-texto";
+import { FaRegUserCircle } from "react-icons/fa";
 
 function NavBar(props) {
   return (
-    <div>
-      <nav className="navbar navbar-expand-lg navbar-dark bgColor">
+    <div className={props.opacity}>
+      <nav
+        className={`navbar navbar-expand-lg navbar-dark ${
+          props.pag === "Home" ? "bgColorGrey" : "bgColor"
+        }`}
+      >
         <div className="container-fluid">
           <Link
             to=""
@@ -43,7 +47,7 @@ function NavBar(props) {
             className="collapse navbar-collapse justify-content-end"
             id="navbarNavAltMarkup"
           >
-            <div className="navbar-nav">
+            <div className="navbar-nav ">
               <Link
                 to="/"
                 className="nav-link text-white"
@@ -67,19 +71,16 @@ function NavBar(props) {
               >
                 Disabled
               </Link>
+
               <Link to="">
-                <UserLogin className="m-auto" />
+                <div className="m-1">
+                  <FaRegUserCircle style={{ color: "white" }} size={24} />
+                </div>
               </Link>
             </div>
           </div>
         </div>
       </nav>
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-      <script>
-        window.jQuery || document.write('
-        <script src="../../assets/js/vendor/jquery.min.js"></script>')
-      </script>
-      <script src="js/bootstrap.min.js"></script>
     </div>
   );
 }
