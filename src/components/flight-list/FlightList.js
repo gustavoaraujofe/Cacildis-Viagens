@@ -37,7 +37,7 @@ function FlightList(props) {
 
         setTimeout(() => {
           setLoading(false);
-        }, 2000);
+        }, 2500);
       } catch (err) {
         console.log(err);
       }

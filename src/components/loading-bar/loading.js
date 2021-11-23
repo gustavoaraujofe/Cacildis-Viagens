@@ -5,7 +5,7 @@ function Loading() {
   return (
     <div>
       <div className="loading-bar">
-        <FaPlane className="p-0" size={24} />
+        <FaPlane className="p-0 plane" size={24} />
       </div>
     </div>
   );
