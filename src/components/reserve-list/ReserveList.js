@@ -52,7 +52,7 @@ function ReserveList() {
     <div>
       <NavBar pag="Minhas Reservas" backButton="/" />
       {loading ? (
-        <Loading />
+        null
       ) : reserveList.length === 0 ? (
         <p className="text-center mt-5">Não existe voos em sua lista</p>
       ) : (
