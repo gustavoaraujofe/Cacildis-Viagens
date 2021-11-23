@@ -37,7 +37,7 @@ function FlightList(props) {
 
         setTimeout(() => {
           setLoading(false);
-        }, 2500);
+        }, 7000);
       } catch (err) {
         console.log(err);
       }
@@ -46,10 +46,9 @@ function FlightList(props) {
     flightList();
   }, [refresh]);
 
-
   return (
     <div>
-      <NavBar pag="Lista de Voos" backButton="/" />
+      <NavBar pag="Voos Encontrados" backButton="/" />
       {loading ? (
         <LoadingBar />
       ) : (
@@ -93,7 +92,7 @@ function FlightList(props) {
             />
             <ButtonDark
               content="Buscar"
-              to="/flight-list"
+              to="/voos"
               onClick={() => setRefresh(!refresh)}
             />
           </div>

@@ -5,6 +5,7 @@ import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import CreditCardInput from "react-credit-card-input";
+import "./PaymentPage.css"
 
 function FlightConfirmation() {
   const flightId = useParams();
@@ -34,7 +35,7 @@ function FlightConfirmation() {
 
   return (
     <div>
-      <NavBar pag="Confirmação" backButton="/" />
+      <NavBar pag="Pagamento" backButton="/" />
       {loading ? (
         null
       ) : flights.length === 0 ? (

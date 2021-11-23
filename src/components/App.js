@@ -7,7 +7,8 @@ import FlightList from "./flight-list/FlightList";
 import ReserveList from "./reserve-list/ReserveList";
 import RegistrationPage from "./registration-page/registration-page";
 import RegistrationEdit from "./registration-edit/registration-edit";
-import FlightConfirmation from "./flight-confirmation/flight-confirmation";
+import PaymentPage from "./PaymentPage/PaymentPage";
+import BoardingPass from "./boarding-pass/boarding-pass";
 
 function App() {
   const [login, setLogin] = useState(false);
@@ -27,17 +28,17 @@ function App() {
           element={<Home dadosVoos={dadosVoos} setDadosVoos={setDadosVoos} />}
         />
         <Route
-          path="flight-list"
+          path="/voos"
           element={
             <FlightList dadosVoos={dadosVoos} setDadosVoos={setDadosVoos} />
           }
         />
-        <Route path="cadastro" element={<RegistrationPage />} />
-        <Route path="editar-cadastro" element={<RegistrationEdit />} />
-        <Route path="login" element="" />
-        <Route path=":id" element={<FlightConfirmation />} />
-        <Route path="cartao-embarque" element="" />
-        <Route path="reservas" element={<ReserveList />} />
+        <Route path="/cadastro" element={<RegistrationPage />} />
+        <Route path="/editar-cadastro" element={<RegistrationEdit />} />
+        <Route path="/login" element="" />
+        <Route path="/:id" element={<PaymentPage />} />
+        <Route path="/cartao-embarque" element={<BoardingPass />} />
+        <Route path="/reservas" element={<ReserveList />} />
       </Routes>
     </div>
   );
