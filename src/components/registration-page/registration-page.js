@@ -6,6 +6,7 @@ import NavBar from "../navbar/NavBar";
 
 function RegistrationPage() {
   const [formData, setFormData] = useState({
+    nome: "",
     genero: "",
     email: "",
     password: "",
