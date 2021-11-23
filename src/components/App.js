@@ -28,7 +28,7 @@ function App() {
           element={<Home dadosVoos={dadosVoos} setDadosVoos={setDadosVoos} />}
         />
         <Route
-          path="flight-list"
+          path="/voos"
           element={
             <FlightList dadosVoos={dadosVoos} setDadosVoos={setDadosVoos} />
           }

@@ -6,7 +6,7 @@
 
 .plane {
     height: 100%;
-    animation: progress-animation 3s ease-in-out;
+    animation: progress-animation 7s ease-in-out;
 }
 
 @keyframes progress-animation {
