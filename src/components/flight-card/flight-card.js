@@ -1,10 +1,10 @@
 import "./flight-card.css";
-import ConvertHours from "../ConvertHours/ConvertHours";
 import gol from "../../assets/images/gol.jpg";
 import latam from "../../assets/images/latam.jpg";
 import azul from "../../assets/images/azul.jpg";
 import itapemerim from "../../assets/images/itapemerim.jpg";
-
+import DolarReal from "../DolarReal/DolarReal";
+import ConvertHours from "../ConvertHours/ConvertHours";
 import { FaPlane } from "react-icons/fa";
 
 function FlightCard(props) {
@@ -45,7 +45,7 @@ function FlightCard(props) {
         </div>
       </div>
 
-      <p className="preco">USD {props.price}</p>
+      <p className="preco"><DolarReal value={props.price} /></p>
     </button>
   );
 }
