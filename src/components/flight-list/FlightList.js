@@ -23,27 +23,35 @@ function FlightList(props) {
 
   function reOrder(type) {
     let tempOrder;
+
     if (type === "price") {
       const flightsClone = [...flights];
       tempOrder = flightsClone.sort((a, b) => {
         return a.price - b.price;
       });
+      setFlights(tempOrder);
     } else if (type === "time") {
       const flightsClone = [...flights];
       tempOrder = flightsClone.sort((a, b) => {
-        let durationHrA = Number(a.trip_duration.split(" hr")[0] * 60);
-        let durationMinA = Number(
-          a.trip_duration.split("hr ")[1].split(" ")[0]
-        );
-        let durationHrB = Number(b.trip_duration.split(" hr")[0] * 60);
-        let durationMinB = Number(
-          b.trip_duration.split("hr ")[1].split(" ")[0]
-        );
+        let durationHrA = a.trip_duration.split(" hr")[0] * 60;
+        let durationMinA =
+          a.trip_duration.split("hr")[1] === ""
+            ? 0
+            : a.trip_duration.split("hr")[1].split(" ")[1];
+        let durationHrB = b.trip_duration.split(" hr")[0] * 60;
+        let durationMinB =
+          b.trip_duration.split("hr")[1] === ""
+            ? 0
+            : b.trip_duration.split("hr")[1].split(" ")[1];
 
-        return durationHrA + durationMinA - (durationHrB + durationMinB);
+        return (
+          Number(durationHrA) +
+          Number(durationMinA) -
+          (Number(durationHrB) + Number(durationMinB))
+        );
       });
+      setFlights(tempOrder);
     }
-    setFlights(tempOrder);
   }
 
   useEffect(() => {
