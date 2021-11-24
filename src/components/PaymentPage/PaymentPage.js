@@ -96,8 +96,7 @@ function FlightConfirmation() {
         }}
       />
     </div>
-    
-          <button className="btn-pink">Fazer o Pagamento</button>
+            <button className="btn-pink">Fazer o Pagamento</button>
     </div>
       )}
     </div>

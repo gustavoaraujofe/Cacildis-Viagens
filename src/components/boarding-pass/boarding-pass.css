@@ -3,4 +3,45 @@
     width: 100vw;
     height: 500px;
     padding: 20px;
+    max-width: 900px;
+    border: 10px solid white;
+}
+
+h2 {
+    font-size: 18px;
+}
+
+.btn-middle {
+    margin-top: 7px;
+}
+
+.dados-passagem {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+span {
+    margin: 4px;
+}
+
+img {
+    width: 70px;
+    margin-top: 15px;
+}
+
+.titulo {
+    font-weight: 700;
+    font-size: 20px;
+    margin: 0;
+}
+
+.qr-code {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.ultimo {
+    margin-top: 15px;
 }

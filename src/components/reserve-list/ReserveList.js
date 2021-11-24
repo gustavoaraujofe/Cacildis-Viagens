@@ -94,7 +94,7 @@ function ReserveList() {
           />
         </div>
       ) : loading ? null : reserveList.length === 0 ? (
-        <p className="text-center mt-5">Não existem voos em sua lista</p>
+        <p className="text-center mt-5">Você não possui nenhuma reserva.</p>
       ) : (
         reserveList.map((currentElement) => {
           return (

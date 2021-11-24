@@ -1,4 +1,5 @@
 import "./flight-card.css";
+import ConvertHours from "../ConvertHours/ConvertHours";
 import gol from "../../assets/images/gol.jpg";
 import latam from "../../assets/images/latam.jpg";
 import azul from "../../assets/images/azul.jpg";
@@ -16,6 +17,8 @@ function FlightCard(props) {
 
   return (
     <button className="btn-light">
+
+
       <img src={img} alt="" />
       <span>{props.departure_time}</span>
       <span>{props.arrival_time}</span>
@@ -24,6 +27,8 @@ function FlightCard(props) {
       <span>{props.arrival_airport_code}</span>
       <p>{props.price}</p>
       <p>{props.num_stops}</p>
+{/* 
+      <ConvertHours value={flights[0].departure_time}  /> */}
     </button>
   );
 }
