@@ -35,7 +35,7 @@ function App() {
         <Route path="/editar-cadastro" element={<RegistrationEdit />} />
         <Route path="/login" element="" />
         <Route path="/:id" element={<PaymentPage />} />
-        <Route path="/reservas/:id" element={<BoardingPass />} />
+        <Route path="/reservas/:idFlight/:idUser" element={<BoardingPass />} />
         <Route path="/reservas" element={<ReserveList />} />
       </Routes>
     </div>

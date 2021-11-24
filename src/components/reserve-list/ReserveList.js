@@ -4,7 +4,7 @@ import axios from "axios";
 import Loading from "../loading-bar/loading";
 import NavBar from "../navbar/NavBar";
 import Login from "../login/login";
-import {Link} from "react-router-dom"
+import { Link } from "react-router-dom";
 
 function ReserveList() {
   const [flights, setFlights] = useState([]);
@@ -70,19 +70,18 @@ function ReserveList() {
 
   useEffect(() => {
     let list = [];
-    if(user.listaVoos !== undefined) {
-    for (let i = 0; i < user.listaVoos.length; i++) {
-      flights.forEach((currentElement) => {
-        if (currentElement._id === user.listaVoos[i]) {
-          list.push(currentElement);
-        }
-      });
+    if (user.listaVoos !== undefined) {
+      for (let i = 0; i < user.listaVoos.length; i++) {
+        flights.forEach((currentElement) => {
+          if (currentElement._id === user.listaVoos[i]) {
+            list.push(currentElement);
+          }
+        });
+      }
+      setReserveList(list);
     }
-    setReserveList(list);
-  }
   }, [user, flights]);
 
-  
   return (
     <div className="h-100">
       <NavBar pag="Minhas Reservas" backButton="/" />
@@ -94,14 +93,12 @@ function ReserveList() {
             align="center"
           />
         </div>
-      ) : loading ? (
-        <Loading />
-      ) : reserveList.length === 0 ? (
+      ) : loading ? null : reserveList.length === 0 ? (
         <p className="text-center mt-5">Não existem voos em sua lista</p>
       ) : (
         reserveList.map((currentElement) => {
           return (
-            <Link to={`${currentElement._id}&${user._id}`}>
+            <Link to={`${currentElement._id}/${user._id}`}>
               <FlightCard
                 key={currentElement._id}
                 img={currentElement.airlines.split(",")[0]}

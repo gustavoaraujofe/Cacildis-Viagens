@@ -6,15 +6,15 @@ import "./boarding-pass.css";
 import QRCode from "react-qr-code";
 
 function BoardingPass() {
-  const flightId = useParams();
   const [flights, setFlights] = useState([]);
   const [loading, setLoading] = useState([]);
   const [user, setUser] = useState([]);
 
   const params = useParams();
-  const idFlight = params.id.split("&")[0];
-  const idUser = params.id.split("&")[1];
-  
+  const idFlight = params.idFlight;
+  const idUser = params.idUser;
+  console.log(idFlight)
+
 
   useEffect(() => {
     async function flightList() {
@@ -23,7 +23,7 @@ function BoardingPass() {
           "https://ironrest.herokuapp.com/cacildis-viagens-voos-v2"
         );
         let filtred = response.data.filter((flights) => {
-          return flights._id === flightId.id;
+          return flights._id === idFlight;
         });
         setFlights(filtred);
         setTimeout(() => {
@@ -36,38 +36,30 @@ function BoardingPass() {
     flightList();
   }, []);
 
-  // useEffect(() => {
-  //   async function infoUser() {
-  //     try {
-  //       const response = await axios.get(
-  //         "https://ironrest.herokuapp.com/cacildis-viagens-users"
-  //       );
-  //       if (userEmail.length > 0) {
-  //         let filtred = response.data.filter((currentElement) => {
-  //           return currentElement.email === userEmail;
-  //         });
-  //         if (filtred.length) {
-  //           setUser(filtred[0].listaVoos);
-  //         } else {
-  //           alert("Usuário não cadastrado");
-  //         }
-  //       }
-  //     } catch (err) {
-  //       console.error(err);
-  //     }
-  //   }
-  //   infoUser();
-  // }, [userEmail]);
+  useEffect(() => {
+    async function infoUser() {
+      try {
+        const response = await axios.get(
+          `https://ironrest.herokuapp.com/cacildis-viagens-users/${idUser}`
+        );
+        setUser(response.data)
+        } catch (err) {
+        console.error(err);
+      }
+    }
+    infoUser();
+  }, []);
+  console.log(user)
 
   return (
     <div>
       <NavBar pag="Boarding Pass" backButton="/reservas" />
       {loading ? null : flights.length === 0 ? (
-        <p className="text-center mt-5">Não existe voos para confirmar</p>
+        <p className="text-center mt-5">Você não possui nenhuma reserva.</p>
       ) : (
         <div>
           <div className="boarding-pass-container">
-            <span>{flights[0].departure_time}</span>
+            <p>{user.nome}</p>
             <span>{flights[0].departure_time}</span>
             <span>{flights[0].departure_airport_code}</span>
             <span>{flights[0].arrival_time}</span>
