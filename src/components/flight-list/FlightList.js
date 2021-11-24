@@ -31,15 +31,18 @@ function FlightList(props) {
     } else if (type === "time") {
       const flightsClone = [...flights];
       tempOrder = flightsClone.sort((a, b) => {
-        let durationHrA = a.trip_duration.split("hr")[0] * 60;
-        let durationMinA = a.trip_duration.split("hr")[1].split(" ")[1];
-        let durationHrB = b.trip_duration.split("hr")[0] * 60;
-        let durationMinB = b.trip_duration.split("hr")[1].split(" ")[1];
+        let durationHrA = Number(a.trip_duration.split(" hr")[0] * 60);
+        let durationMinA = Number(
+          a.trip_duration.split("hr ")[1].split(" ")[0]
+        );
+        let durationHrB = Number(b.trip_duration.split(" hr")[0] * 60);
+        let durationMinB = Number(
+          b.trip_duration.split("hr ")[1].split(" ")[0]
+        );
 
         return durationHrA + durationMinA - (durationHrB + durationMinB);
       });
     }
-
     setFlights(tempOrder);
   }
 
