@@ -18,7 +18,6 @@ function BoardingPass(props) {
   const params = useParams();
   const idFlight = params.idFlight;
   const idUser = params.idUser;
-  console.log(idFlight);
 
   let img =
     props.img === "Azul"
