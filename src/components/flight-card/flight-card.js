@@ -19,7 +19,9 @@ function FlightCard(props) {
 
   return (
     <button className="btn-light">
-      <p><img className="img-cia-aerea" src={img} alt="" /></p>
+      <p>
+        <img className="img-cia-aerea" src={img} alt="" />
+      </p>
       <div className="info-voo">
         <div className="horario-voo">
           <span className="horario">
@@ -45,7 +47,16 @@ function FlightCard(props) {
         </div>
       </div>
 
-      <p className="preco"><DolarReal value={props.price} /></p>
+      {props.price ? (
+        <p className="preco">
+          <DolarReal value={props.price} />
+        </p>
+      ) : null}
+      {props.qtd ? (
+        <p>
+          {props.qtd} {props.qtd > 1 ? "Passageiros" : "Passageiro"}
+        </p>
+      ) : null}
     </button>
   );
 }

@@ -19,6 +19,7 @@ function BoardingPass(props) {
   const idFlight = params.idFlight;
   const idUser = params.idUser;
 
+
   let img =
     props.img === "Azul"
       ? azul
@@ -52,21 +53,25 @@ function BoardingPass(props) {
       }
     }
     flightList();
-  }, []);
+  }, [idFlight]);
 
   useEffect(() => {
-    async function infoUser() {
-      try {
-        const response = await axios.get(
-          `https://ironrest.herokuapp.com/cacildis-viagens-users/${idUser}`
-        );
-        setUser(response.data);
-      } catch (err) {
-        console.error(err);
+    
+    if(idUser) {
+      async function infoUser() {
+        try {
+          const response = await axios.get(
+            `https://ironrest.herokuapp.com/cacildis-viagens-users/${idUser}`
+          );
+          setUser(response.data);
+        } catch (err) {
+          console.error(err);
+        }
       }
+      infoUser();
     }
-    infoUser();
-  }, []);
+    
+  }, [idUser]);
 
   return (
     <div>

@@ -11,7 +11,10 @@ import "../button-pink/button-pink";
 import Alert from "../alert/Alert";
 
 function FlightConfirmation() {
-  const flightId = useParams();
+  const params = useParams();
+  const flightId = params.id.split("&")[0];
+  const qtdPass = params.id.split("&")[1];
+
   const [userEmail, setUserEmail] = useState("");
   const [registeredUser, setRegisteredUser] = useState("");
   const [email, setEmail] = useState("");
@@ -29,7 +32,7 @@ function FlightConfirmation() {
     listaVoos: [],
   });
 
-  console.log(formData);
+ 
   function handleChangeLogin(event) {
     setEmail(event.target.value);
   }
@@ -40,10 +43,10 @@ function FlightConfirmation() {
   }
 
   function addIdVoo() {
-    if (!formData.listaVoos.includes(flightId.id)) {
+    if (!formData.listaVoos.includes(flightId)) {
       setFormData({
         ...formData,
-        listaVoos: [...formData.listaVoos, flightId.id],
+        listaVoos: [...formData.listaVoos, flightId],
       });
       setConfirmPayment(true);
     } else {
@@ -52,18 +55,21 @@ function FlightConfirmation() {
   }
 
   useEffect(() => {
-    axios
+    if(formData.nome !== ""){
+      axios
       .put(
         `https://ironrest.herokuapp.com/cacildis-viagens-users/${userId}`,
         formData
       )
-      .then((response) => {
-        console.log(response);
+      .then(() => {
+        
       })
       .catch((err) => {
         console.log(err);
       });
-  }, [formData]);
+    }
+    
+  }, [formData, userId]);
 
   useEffect(() => {
     async function infoUser() {
@@ -100,23 +106,20 @@ function FlightConfirmation() {
           "https://ironrest.herokuapp.com/cacildis-viagens-voos-v2"
         );
         let filtred = response.data.filter((flights) => {
-          return flights._id === flightId.id;
+          return flights._id === flightId;
         });
         setFlights(filtred);
-        setTimeout(() => {
-          setLoading(false);
-        }, 1000);
       } catch (err) {
         console.log(err);
       }
     }
     flightList();
-  }, []);
+  }, [flightId]);
 
   return (
     <div>
       <NavBar pag="Pagamento" backButton="/" />
-      {loading ? null : flights.length === 0 ? (
+      {flights.length === 0 ? (
         <p className="text-center mt-5">Não existe voos para confirmar</p>
       ) : userEmail === "" ? (
         <div className=" mt-3 container">
@@ -151,6 +154,7 @@ function FlightConfirmation() {
               arrival_airport_code={flights[0].arrival_airport_code}
               num_stops={flights[0].num_stops}
               price={flights[0].price}
+              qtd={qtdPass}
             />
             <div>
               Insira os dados do cartão de crédito:
