@@ -27,7 +27,7 @@ function Timer(props) {
   });
 
   return (
-    <div>
+    <div className="timer">
       <Clock size={24} />
       <span>
         {minutes === 0 && seconds === 0 ? null : (

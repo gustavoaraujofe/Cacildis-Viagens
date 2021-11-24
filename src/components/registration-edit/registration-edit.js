@@ -129,7 +129,7 @@ function RegistrationEdit() {
         </>
       ) : registeredUser === "registred" ? (
         <>
-          <div className="btn-middle container">
+          <div className="container">
             <Form
               handleChange={handleChange}
               handleSubmit={handleSubmit}
