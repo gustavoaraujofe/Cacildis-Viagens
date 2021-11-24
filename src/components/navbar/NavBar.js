@@ -13,7 +13,7 @@ function NavBar(props) {
   }
 
   return (
-    <div className={props.opacity}>
+    <div>
       <nav
         className={`navbar navbar-expand-lg navbar-dark ${
           props.pag === "Home" ? "bgColorGrey" : "bgColor"
@@ -27,14 +27,18 @@ function NavBar(props) {
           >
             <LogoTexto />
           </Link>
-          <div className="navbar-toggler rounded-circle border-0">
-            <Link to={props.backButton}>
-              <i
-                className={` ${
-                  props.pag === "Home" ? "opacity-0" : null
-                } fa fa-angle-left fa-lg text-white`}
-              ></i>
-            </Link>
+          <div className="navbar-toggler text-white rounded-circle border-0">
+            {props.pag === "Home" ? (
+              <LogoTexto />
+            ) : (
+              <Link to={props.backButton}>
+                <i
+                  className={` ${
+                    props.pag === "Home" ? "opacity-0" : null
+                  } fa fa-angle-left fa-lg text-white`}
+                ></i>
+              </Link>
+            )}
           </div>
           <h2
             className={`${

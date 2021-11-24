@@ -149,7 +149,10 @@ function FlightList(props) {
           ) : (
             flights.map((currentElement) => {
               return (
-                <Link to={`/${currentElement._id}`} key={currentElement._id}>
+                <Link
+                  to={`/${currentElement._id}&${props.qtd}`}
+                  key={currentElement._id}
+                >
                   <FlightCard
                     img={currentElement.airlines.split(",")[0]}
                     departure_time={currentElement.departure_time}
@@ -160,7 +163,8 @@ function FlightList(props) {
                     }
                     arrival_airport_code={currentElement.arrival_airport_code}
                     num_stops={currentElement.num_stops}
-                    price={currentElement.price}
+                    price={currentElement.price * props.qtd}
+                    qtd={props.qtd}
                   />
                 </Link>
               );

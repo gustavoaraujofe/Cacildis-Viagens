@@ -52,21 +52,23 @@ function BoardingPass(props) {
       }
     }
     flightList();
-  }, []);
+  }, [idFlight]);
 
   useEffect(() => {
-    async function infoUser() {
-      try {
-        const response = await axios.get(
-          `https://ironrest.herokuapp.com/cacildis-viagens-users/${idUser}`
-        );
-        setUser(response.data);
-      } catch (err) {
-        console.error(err);
+    if (idUser) {
+      async function infoUser() {
+        try {
+          const response = await axios.get(
+            `https://ironrest.herokuapp.com/cacildis-viagens-users/${idUser}`
+          );
+          setUser(response.data);
+        } catch (err) {
+          console.error(err);
+        }
       }
+      infoUser();
     }
-    infoUser();
-  }, []);
+  }, [idUser]);
 
   return (
     <div>
@@ -87,7 +89,10 @@ function BoardingPass(props) {
               <div className="dados-passagem">
                 <span className="titulo">Saída: </span>
                 <span>
-                  <ConvertHours value={flights[0].departure_time} decrement={false}/>
+                  <ConvertHours
+                    value={flights[0].departure_time}
+                    decrement={false}
+                  />
                 </span>
                 <span>{flights[0].departure_airport_code}</span>
               </div>
@@ -116,7 +121,10 @@ function BoardingPass(props) {
               </div>
               <div className="dados-passagem ultimo"></div>
               <span className="titulo">Horário de Embarque: </span>
-              <ConvertHours value={flights[0].departure_time} decrement={true} />
+              <ConvertHours
+                value={flights[0].departure_time}
+                decrement={true}
+              />
             </div>
           </div>
           <div className="btn-middle">

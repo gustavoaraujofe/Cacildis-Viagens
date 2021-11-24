@@ -17,7 +17,7 @@ function App() {
     data: "",
     qtdPessoas: 0,
   });
- 
+
   return (
     <div className="h-100">
       <Routes>
@@ -28,7 +28,11 @@ function App() {
         <Route
           path="/voos"
           element={
-            <FlightList dadosVoos={dadosVoos} setDadosVoos={setDadosVoos} />
+            <FlightList
+              qtd={dadosVoos.qtdPessoas}
+              dadosVoos={dadosVoos}
+              setDadosVoos={setDadosVoos}
+            />
           }
         />
         <Route path="/cadastro" element={<RegistrationPage />} />
