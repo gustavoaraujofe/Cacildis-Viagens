@@ -20,7 +20,6 @@ function RegistrationPage() {
     listaVoos: [],
   });
 
-  
   function handleChange(event) {
     setFormData({ ...formData, [event.target.name]: event.target.value });
   }
@@ -71,8 +70,8 @@ function RegistrationPage() {
             >
               Criar nova conta
             </button>
-            </div>
-            <div className="btn-middle">
+          </div>
+          <div className="btn-middle">
             <Link to="/editar-cadastro">
               <button className="btn-dark">Editar conta</button>
             </Link>
