@@ -19,7 +19,6 @@ function BoardingPass(props) {
   const idFlight = params.idFlight;
   const idUser = params.idUser;
 
-
   let img =
     props.img === "Azul"
       ? azul
@@ -56,8 +55,7 @@ function BoardingPass(props) {
   }, [idFlight]);
 
   useEffect(() => {
-    
-    if(idUser) {
+    if (idUser) {
       async function infoUser() {
         try {
           const response = await axios.get(
@@ -70,7 +68,6 @@ function BoardingPass(props) {
       }
       infoUser();
     }
-    
   }, [idUser]);
 
   return (
@@ -92,7 +89,10 @@ function BoardingPass(props) {
               <div className="dados-passagem">
                 <span className="titulo">Saída: </span>
                 <span>
-                  <ConvertHours value={flights[0].departure_time} decrement={false}/>
+                  <ConvertHours
+                    value={flights[0].departure_time}
+                    decrement={false}
+                  />
                 </span>
                 <span>{flights[0].departure_airport_code}</span>
               </div>
@@ -121,7 +121,10 @@ function BoardingPass(props) {
               </div>
               <div className="dados-passagem ultimo"></div>
               <span className="titulo">Horário de Embarque: </span>
-              <ConvertHours value={flights[0].departure_time} decrement={true} />
+              <ConvertHours
+                value={flights[0].departure_time}
+                decrement={true}
+              />
             </div>
           </div>
           <div className="btn-middle">

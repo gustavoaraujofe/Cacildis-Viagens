@@ -32,7 +32,6 @@ function FlightConfirmation() {
     listaVoos: [],
   });
 
- 
   function handleChangeLogin(event) {
     setEmail(event.target.value);
   }
@@ -55,20 +54,17 @@ function FlightConfirmation() {
   }
 
   useEffect(() => {
-    if(formData.nome !== ""){
+    if (formData.nome !== "") {
       axios
-      .put(
-        `https://ironrest.herokuapp.com/cacildis-viagens-users/${userId}`,
-        formData
-      )
-      .then(() => {
-        
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+        .put(
+          `https://ironrest.herokuapp.com/cacildis-viagens-users/${userId}`,
+          formData
+        )
+        .then(() => {})
+        .catch((err) => {
+          console.log(err);
+        });
     }
-    
   }, [formData, userId]);
 
   useEffect(() => {

@@ -79,7 +79,6 @@ function FlightList(props) {
 
     flightList();
   }, [refresh]);
-  
 
   return (
     <div>

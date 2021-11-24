@@ -83,10 +83,6 @@ function ReserveList() {
         );
 
         setFlights([...response.data]);
-
-        setTimeout(() => {
-          setLoading(false);
-        }, 1000);
       } catch (err) {
         console.log(err);
       }
@@ -130,7 +126,7 @@ function ReserveList() {
             align="center"
           />
         </div>
-      ) : loading ? null : reserveList.length === 0 ? (
+      ) : reserveList.length === 0 ? (
         <p className="text-center mt-5">Você não possui nenhuma reserva.</p>
       ) : (
         reserveList.map((currentElement) => {
