@@ -136,10 +136,11 @@ function FlightConfirmation() {
             </div>
           </>
         ) : (
-          <div>
+          <div className="container-pagamento">
             <Timer />
-            Garanta já o seu voo! A oferta abaixo ficará disponível por apenas
-            30 minutos.
+            <p className="texto-pagamento">Garanta já o seu voo!</p>
+            <p>A oferta abaixo ficará disponível por apenas
+            30 minutos.</p>
             <FlightCard
               key={flights[0]._id}
               img={flights[0].airlines.split(",")[0]}
@@ -153,7 +154,7 @@ function FlightConfirmation() {
               qtd={qtdPass}
             />
             <div>
-              Insira os dados do cartão de crédito:
+            <p>Insira os dados do cartão de crédito:</p>
               <CreditCardInput
                 customTextLabels={{
                   invalidCardNumber: "O número do cartão está inválido.",
@@ -175,9 +176,11 @@ function FlightConfirmation() {
                 }}
               />
             </div>
-            <button className="btn-pink" onClick={() => addIdVoo()}>
-              Fazer o Pagamento
-            </button>
+            <div className="btn-pagamento">
+              <button className="btn-pink" onClick={() => addIdVoo()}>
+                Fazer o Pagamento
+              </button>
+            </div>
           </div>
         )
       ) : registeredUser === "noregistred" ? (
@@ -190,7 +193,7 @@ function FlightConfirmation() {
               align="center"
             />
           </div>
-          <div className="btn-middle">
+          <div className="">
             <Link to="/cadastro">
               <button className="btn-dark">Criar novo cadastro</button>
             </Link>
