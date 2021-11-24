@@ -4,6 +4,7 @@ import gol from "../../assets/images/gol.jpg";
 import latam from "../../assets/images/latam.jpg";
 import azul from "../../assets/images/azul.jpg";
 import itapemerim from "../../assets/images/itapemerim.jpg";
+
 import { FaPlane } from "react-icons/fa";
 
 function FlightCard(props) {

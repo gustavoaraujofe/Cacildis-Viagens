@@ -41,7 +41,7 @@ function FlightConfirmation() {
       ) : flights.length === 0 ? (
         <p className="text-center mt-5">Não existe voos para confirmar</p>
       ) : (
-        <div>
+        <div className="timer">
           <Timer />
           Garanta já o seu voo! A oferta abaixo ficará disponível por apenas 30 minutos. 
           <FlightCard

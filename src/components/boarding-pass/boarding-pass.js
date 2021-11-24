@@ -80,7 +80,7 @@ function BoardingPass(props) {
               <span className="titulo">Nome do passageiro:</span>
               <span className="titulo"> {user.nome}</span>
               <p>
-                <img src={img} alt="" />
+                <img className="cia-aerea-img" src={img} alt="" />
               </p>
               <span className="titulo">Data do voo: </span>
               <span>{flights[0].departure_date}</span>
