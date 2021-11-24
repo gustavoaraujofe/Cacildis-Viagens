@@ -7,9 +7,7 @@ function Login(props) {
     >
       <form className="row g-3" onSubmit={props.handleSubmit}>
         <div className="col-auto">
-          <label className="visually-hidden">
-            Email
-          </label>
+          <label className="visually-hidden">Email</label>
           <input
             type="text"
             className="form-control"
@@ -19,14 +17,8 @@ function Login(props) {
           />
         </div>
         <div className="col-auto">
-          <label className="visually-hidden">
-            Password
-          </label>
-          <input
-            type="password"
-            className="form-control"
-            placeholder="Senha"
-          />
+          <label className="visually-hidden">Password</label>
+          <input type="password" className="form-control" placeholder="Senha" />
         </div>
         <div className="col-auto">
           <button type="submit" className="btn btn-dark mb-3">

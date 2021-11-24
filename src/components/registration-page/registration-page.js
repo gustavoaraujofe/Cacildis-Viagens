@@ -1,21 +1,26 @@
 import "./registration-page.css";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import axios from "axios";
 import Form from "../form/form";
 import NavBar from "../navbar/NavBar";
+import Alert from "../alert/Alert";
 
 function RegistrationPage() {
+  const [userCreated, setUserCreated] = useState(false);
+  const [isSending, setIsSending] = useState(false);
+  const [newRegistration, setNewRegistration] = useState(false);
   const [formData, setFormData] = useState({
     nome: "",
     genero: "",
     email: "",
     password: "",
-    birthDate: "11/01/1965",
+    birthDate: "",
     acceptedTerms: false,
-    listaVoos: []
+    listaVoos: [],
   });
 
-  const [isSending, setIsSending] = useState(false);
+  
   function handleChange(event) {
     setFormData({ ...formData, [event.target.name]: event.target.value });
   }
@@ -25,26 +30,55 @@ function RegistrationPage() {
     axios
       .post("https://ironrest.herokuapp.com/cacildis-viagens-users", formData)
       .then(() => {
-
-        setIsSending(false);
+        setUserCreated(true);
+        setIsSending(true);
       })
       .catch((err) => {
         console.log(err);
-        setIsSending(false);
+        setIsSending(true);
       });
   }
 
-  console.log(formData)
   return (
     <>
       <NavBar pag="Meu Cadastro" backButton="/" />
-      <Form
-        handleChange={handleChange}
-        handleSubmit={handleSubmit}
-        formData={formData}
-        setFormData={setFormData}
-        isSending={isSending}
-      />
+      {userCreated ? (
+        <>
+          <Alert type="success">Conta criada com sucesso!</Alert>
+          <div className="btn-middle">
+            <Link to="/">
+              <button className="btn-dark">Voltar para Home</button>
+            </Link>
+          </div>
+        </>
+      ) : newRegistration ? (
+        <div className="container mt-5">
+          <Form
+            handleChange={handleChange}
+            handleSubmit={handleSubmit}
+            formData={formData}
+            setFormData={setFormData}
+            isSending={isSending}
+            textBtn="Confirmar Alteração"
+          />
+        </div>
+      ) : (
+        <>
+          <div className="btn-middle">
+            <button
+              className="btn-dark"
+              onClick={() => setNewRegistration(true)}
+            >
+              Criar nova conta
+            </button>
+            </div>
+            <div className="btn-middle">
+            <Link to="/editar-cadastro">
+              <button className="btn-dark">Editar conta</button>
+            </Link>
+          </div>
+        </>
+      )}
     </>
   );
 }
