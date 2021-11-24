@@ -77,7 +77,7 @@ function Form(props) {
           {props.isSending ? (
             <span role="status" aria-hidden="true"></span>
           ) : null}
-          Cadastrar
+          {props.textBtn}
         </button>
       </div>
     </form>
