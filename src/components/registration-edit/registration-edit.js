@@ -62,12 +62,12 @@ function RegistrationEdit() {
           });
 
           if (filtred.length) {
-            setRegisteredUser("registred");
+            setRegisteredUser("registered");
             setUserId(filtred[0]._id);
             delete filtred[0]._id;
             setFormData({ ...filtred[0] });
           } else {
-            setRegisteredUser("noregistred");
+            setRegisteredUser("noregistered");
           }
         }
       } catch (err) {
@@ -101,15 +101,7 @@ function RegistrationEdit() {
   return (
     <div className="h-100">
       <NavBar pag="Editar Cadastro" backButton="/cadastro" />
-      {userEmail === "" ? (
-        <div className=" mt-3 container">
-          <Login
-            onChange={handleChangeLogin}
-            handleSubmit={handleSubmitLogin}
-            align="center"
-          />
-        </div>
-      ) : userDeleted ? (
+      {userDeleted ? (
         <>
           <Alert type="danger">Conta excluída com sucesso!</Alert>
           <div className="btn-middle">
@@ -127,27 +119,26 @@ function RegistrationEdit() {
             </Link>
           </div>
         </>
-      ) : registeredUser === "registred" ? (
-        <>
-          <div className="container">
-            <Form
-              handleChange={handleChange}
-              handleSubmit={handleSubmit}
-              formData={formData}
-              setFormData={setFormData}
-              isSending={isSending}
-              textBtn="Confirmar Alteração"
-            />
-          </div>
-          <div className="btn-middle">
-            <button className="btn-dark" onClick={() => deleteCount()}>
-              Excluir Conta
-            </button>
-          </div>
-        </>
-      ) : registeredUser === "noregistred" ? (
+      ) : registeredUser === "noregistered" ? (
         <>
           <Alert type="warning">Usuário não encontrado!</Alert>
+          <div className="container-items">
+            <Login
+              onChange={handleChangeLogin}
+              handleSubmit={handleSubmitLogin}
+              align="center"
+            />
+
+            <Link to="/cadastro">
+              <button className="btn-dark mt-3">Criar novo cadastro</button>
+            </Link>
+          </div>
+        </>
+      ) : null}
+      <div
+        className={registeredUser !== "noregistered" ? "container-items" : ""}
+      >
+        {userEmail === "" ? (
           <div className=" mt-3 container">
             <Login
               onChange={handleChangeLogin}
@@ -155,13 +146,28 @@ function RegistrationEdit() {
               align="center"
             />
           </div>
-          <div className="btn-middle">
-            <Link to="/cadastro">
-              <button className="btn-dark">Criar novo cadastro</button>
-            </Link>
-          </div>
-        </>
-      ) : null}
+        ) : registeredUser === "registered" ? (
+          <>
+            <div className="container mt-5" style={{ maxWidth: "800px" }}>
+              <div className="w-100 m-auto d-flex justify-content-center">
+                <Form
+                  handleChange={handleChange}
+                  handleSubmit={handleSubmit}
+                  formData={formData}
+                  setFormData={setFormData}
+                  isSending={isSending}
+                  textBtn="Confirmar Alteração"
+                />
+              </div>
+            </div>
+            <div className="btn-middle">
+              <button className="btn-dark" onClick={() => deleteCount()}>
+                Excluir Conta
+              </button>
+            </div>
+          </>
+        ) : null}
+      </div>
     </div>
   );
 }

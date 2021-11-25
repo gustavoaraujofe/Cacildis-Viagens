@@ -49,7 +49,7 @@ function FlightConfirmation() {
       });
       setConfirmPayment(true);
     } else {
-      alert("Esse voo já foi existe em sua lista");
+      alert("Esse voo já existe em sua lista");
     }
   }
 
@@ -139,8 +139,7 @@ function FlightConfirmation() {
           <div className="container-pagamento">
             <Timer />
             <p className="texto-pagamento">Garanta já o seu voo!</p>
-            <p>A oferta abaixo ficará disponível por apenas
-            30 minutos.</p>
+            <p>A oferta abaixo ficará disponível por apenas 30 minutos.</p>
             <FlightCard
               key={flights[0]._id}
               img={flights[0].airlines.split(",")[0]}
@@ -150,30 +149,12 @@ function FlightConfirmation() {
               departure_airport_code={flights[0].departure_airport_code}
               arrival_airport_code={flights[0].arrival_airport_code}
               num_stops={flights[0].num_stops}
-              price={flights[0].price}
+              price={flights[0].price * qtdPass}
               qtd={qtdPass}
             />
             <div>
-            <p>Insira os dados do cartão de crédito:</p>
+              <p>Insira os dados do cartão de crédito:</p>
               <CreditCardInput
-                onError={({ inputName, err }) =>
-                  console.log(`credit card input error: ${err}`)
-                }
-                cardCVCInputProps={{
-                  onBlur: (e) => console.log("cvc blur", e),
-                  onChange: (e) => console.log("cvc change", e),
-                  onError: (err) => console.log(`cvc error: ${err}`),
-                }}
-                cardExpiryInputProps={{
-                  onBlur: (e) => console.log("expiry blur", e),
-                  onChange: (e) => console.log("expiry change", e),
-                  onError: (err) => console.log(`expiry error: ${err}`),
-                }}
-                cardNumberInputProps={{
-                  onBlur: (e) => console.log("number blur", e),
-                  onChange: (e) => console.log("number change", e),
-                  onError: (err) => console.log(`number error: ${err}`),
-                }}
                 customTextLabels={{
                   invalidCardNumber: "O número do cartão está inválido.",
                   expiryError: {
