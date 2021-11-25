@@ -13,32 +13,30 @@ function NavBar(props) {
   }
 
   return (
-    <div>
+    <div className={props.opacity}>
       <nav
         className={`navbar navbar-expand-lg navbar-dark ${
           props.pag === "Home" ? "bgColorGrey" : "bgColor"
         }`}
       >
         <div className="container-fluid">
-          <Link
+          <div
             to=""
-            className="navbar-brand text-white collapse navbar-collapse m-auto"
+            className={`navbar-brand text-white ${
+              props.pag !== "Home" ? "collapse navbar-collapse" : ""
+            } `}
             href="#"
           >
             <LogoTexto />
-          </Link>
-          <div className="navbar-toggler text-white rounded-circle border-0">
-            {props.pag === "Home" ? (
-              <LogoTexto />
-            ) : (
-              <Link to={props.backButton}>
-                <i
-                  className={` ${
-                    props.pag === "Home" ? "opacity-0" : null
-                  } fa fa-angle-left fa-lg text-white`}
-                ></i>
-              </Link>
-            )}
+          </div>
+          <div className="navbar-toggler rounded-circle border-0">
+            <Link to={props.backButton}>
+              <i
+                className={` ${
+                  props.pag === "Home" ? "opacity-0" : null
+                } fa fa-angle-left fa-lg text-white`}
+              ></i>
+            </Link>
           </div>
           <h2
             className={`${
@@ -66,19 +64,19 @@ function NavBar(props) {
             <div className="navbar-nav ">
               <Link
                 to="/"
-                className="nav-link text-white"
+                className="nav-link text-white ms-3"
                 aria-current="page"
                 href="#"
               >
                 Home
               </Link>
-              <Link to="/reservas" className="nav-link text-white" href="#">
+              <Link to="/reservas" className="nav-link text-white ms-3" href="#">
                 Minhas Reservas
               </Link>
-              <Link to="/cadastro" className="nav-link text-white" href="#">
+              <Link to="/cadastro" className="nav-link text-white ms-3" href="#">
                 Meu Cadastro
               </Link>
-              <div className="m-1" onClick={() => displayLogin()}>
+              <div className="m-1 ms-3" onClick={() => displayLogin()}>
                 <FaRegUserCircle style={{ color: "white" }} size={24} />
               </div>
             </div>

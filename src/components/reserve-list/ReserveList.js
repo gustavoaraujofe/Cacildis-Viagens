@@ -1,3 +1,4 @@
+import "../container-items.css";
 import { useState, useEffect } from "react";
 import FlightCard from "../flight-card/flight-card";
 import axios from "axios";
@@ -9,7 +10,7 @@ import Alert from "../alert/Alert";
 
 function ReserveList() {
   const [flights, setFlights] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [registeredUser, setRegisteredUser] = useState("");
   const [reserveList, setReserveList] = useState([]);
   const [user, setUser] = useState([]);
   const [userId, setUserId] = useState("");
@@ -64,8 +65,9 @@ function ReserveList() {
             setUserId(filtered[0]._id);
             delete filtered[0]._id;
             setUser(filtered[0]);
+            setRegisteredUser("registered");
           } else {
-            alert("Usuário não cadastrado");
+            setRegisteredUser("noregistered");
           }
         }
       } catch (err) {
@@ -117,44 +119,63 @@ function ReserveList() {
             </button>
           </div>
         </>
+      ) : registeredUser === "noregistered" ? (
+        <Alert type="warning">Usuário não encontrado!</Alert>
       ) : null}
-      {userEmail === "" ? (
-        <div className=" mt-3 container">
-          <Login
-            onChange={handleChange}
-            handleSubmit={handleSubmit}
-            align="center"
-          />
-        </div>
-      ) : reserveList.length === 0 ? (
-        <p className="text-center mt-5">Você não possui nenhuma reserva.</p>
-      ) : (
-        reserveList.map((currentElement) => {
-          return (
-            <div key={currentElement._id}>
-              <Link to={`${currentElement._id}/${userId}`}>
-                <FlightCard
-                  img={currentElement.airlines.split(",")[0]}
-                  departure_time={currentElement.departure_time}
-                  arrival_time={currentElement.arrival_time}
-                  trip_duration={currentElement.trip_duration}
-                  departure_airport_code={currentElement.departure_airport_code}
-                  arrival_airport_code={currentElement.arrival_airport_code}
-                  num_stops={currentElement.num_stops}
-                ></FlightCard>
-              </Link>
-              <div className="btn-middle">
-                <button
-                  className="btn-pink bg-danger"
-                  onClick={() => deletePass(currentElement._id)}
-                >
-                  Cancelar passagem
-                </button>
+
+      <h2 className="text-center h4 mt-5 text-top-pag">
+        <strong>Minhas Reservas</strong>
+      </h2>
+      <div className="container-items p-5">
+        {userEmail === "" ? (
+          <div className=" mt-3 container ">
+            <Login
+              onChange={handleChange}
+              handleSubmit={handleSubmit}
+              align="center"
+            />
+          </div>
+        ) : reserveList.length === 0 && registeredUser === "registered" ? (
+          <p className="text-center mt-5">Você não possui nenhuma reserva.</p>
+        ) : registeredUser === "noregistered" ? (
+          <div className=" mt-3 container ">
+            <Login
+              onChange={handleChange}
+              handleSubmit={handleSubmit}
+              align="center"
+            />
+          </div>
+        ) : registeredUser === "registered" ? (
+          reserveList.map((currentElement, index) => {
+            return (
+              <div key={currentElement._id}>
+                <Link to={`${currentElement._id}/${userId}`}>
+                  <FlightCard
+                    img={currentElement.airlines.split(",")[0]}
+                    departure_time={currentElement.departure_time}
+                    arrival_time={currentElement.arrival_time}
+                    trip_duration={currentElement.trip_duration}
+                    departure_airport_code={
+                      currentElement.departure_airport_code
+                    }
+                    arrival_airport_code={currentElement.arrival_airport_code}
+                    num_stops={currentElement.num_stops}
+                  ></FlightCard>
+                </Link>
+                <div className="btn-middle">
+                  <button
+                    className="btn-pink bg-danger"
+                    onClick={() => deletePass(currentElement._id)}
+                  >
+                    Cancelar passagem
+                  </button>
+                </div>
+                {index !== reserveList.length - 1 ? <hr /> : null}
               </div>
-            </div>
-          );
-        })
-      )}
+            );
+          })
+        ) : null}
+      </div>
     </div>
   );
 }

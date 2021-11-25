@@ -7,7 +7,11 @@ import "../button-pink/button-pink.css";
 
 function Form(props) {
   return (
-    <form onSubmit={props.handleSubmit}>
+    <form
+      onSubmit={props.handleSubmit}
+      className="width-form d-flex flex-column"
+      style={{ minWidth: "60%" }}
+    >
       <InputTexto
         label="Nome Completo:"
         name="nome"
@@ -39,6 +43,7 @@ function Form(props) {
         required={true}
       />
       {/* Input senha */}
+
       <FormField
         label="Defina a sua senha:"
         id="exampleInputPassword1"
@@ -48,7 +53,9 @@ function Form(props) {
         value={props.formData.password}
         required={true}
       />
+
       {/* Input Data Nascimento */}
+
       <FormField
         label="Data de Nascimento:"
         id="exampleInputDate"
@@ -58,6 +65,7 @@ function Form(props) {
         value={props.formData.birthDate}
         required={true}
       />
+
       {/* Input Termos e Condições  */}
       <CheckboxInput
         label="Eu aceito os Termos e Condições."
@@ -72,7 +80,7 @@ function Form(props) {
         checked={props.formData.acceptedTerms}
         required={true}
       />
-      <div className="btn-middle">
+      <div className="btn-middle width-max">
         <button className="btn-pink" disabled={props.isSending} type="submit">
           {props.isSending ? (
             <span role="status" aria-hidden="true"></span>

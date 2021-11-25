@@ -1,4 +1,5 @@
 import "./FlightList.css";
+import "../container-items.css";
 import FlightCard from "../flight-card/flight-card";
 import { useEffect, useState } from "react";
 import axios from "axios";
@@ -86,7 +87,7 @@ function FlightList(props) {
       {loading ? (
         <LoadingBar />
       ) : (
-        <div>
+        <div className="container-items">
           <div className="texto">
             <InputSelect
               label="Origem"
@@ -124,51 +125,62 @@ function FlightList(props) {
               onChange={handleChange}
               value={props.dadosVoos.data}
             />
-            <div className="btn-middle">
+            <div className="btn-middle mt-4">
               <ButtonDark
                 content="Buscar"
                 to="/voos"
                 onClick={() => setRefresh(!refresh)}
               />
             </div>
-            <button
-              className="btn btn-dark mt-2"
-              onClick={() => reOrder("price")}
-            >
-              Ordenar por menor preço
-            </button>
-            <button
-              className="btn btn-dark mt-2"
-              onClick={() => reOrder("time")}
-            >
-              Ordenar por menor tempo
-            </button>
+            <p className="pt-3 h6">Ordenar por:</p>
+            <div className="d-flex flex-wrap justify-content-evenly pt-1">
+              <button
+                className="btn btn-dark bt-filter"
+                onClick={() => reOrder("price")}
+              >
+                Menor preço
+              </button>
+              <button
+                className="btn btn-dark bt-filter"
+                onClick={() => reOrder("time")}
+              >
+                Menor tempo
+              </button>
+            </div>
           </div>
           {flights.length === 0 ? (
             <p className="text-center mt-5">Voo não encontrado...</p>
           ) : (
-            flights.map((currentElement) => {
-              return (
-                <Link
-                  to={`/${currentElement._id}&${props.qtd}`}
-                  key={currentElement._id}
-                >
-                  <FlightCard
-                    img={currentElement.airlines.split(",")[0]}
-                    departure_time={currentElement.departure_time}
-                    arrival_time={currentElement.arrival_time}
-                    trip_duration={currentElement.trip_duration}
-                    departure_airport_code={
-                      currentElement.departure_airport_code
-                    }
-                    arrival_airport_code={currentElement.arrival_airport_code}
-                    num_stops={currentElement.num_stops}
-                    price={currentElement.price * props.qtd}
-                    qtd={props.qtd}
-                  />
-                </Link>
-              );
-            })
+            <div className="d-flex flex-column mt-3">
+              {flights.map((currentElement) => {
+                return (
+                  <div className="mt-3">
+                    <Link
+                      to={`/${currentElement._id}&${props.qtd}`}
+                      key={currentElement._id}
+                    >
+                      <FlightCard
+                        img={currentElement.airlines.split(",")[0]}
+                        departure_time={currentElement.departure_time}
+                        arrival_time={currentElement.arrival_time}
+                        trip_duration={currentElement.trip_duration}
+                        departure_airport_code={
+                          currentElement.departure_airport_code
+                        }
+                        arrival_airport_code={
+                          currentElement.arrival_airport_code
+                        }
+                        num_stops={currentElement.num_stops}
+                        price={
+                          currentElement.price * (props.qtd ? props.qtd : 1)
+                        }
+                        qtd={props.qtd ? props.qtd : 1}
+                      />
+                    </Link>
+                  </div>
+                );
+              })}
+            </div>
           )}
         </div>
       )}

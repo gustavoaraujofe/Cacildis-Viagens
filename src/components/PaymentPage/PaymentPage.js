@@ -139,8 +139,7 @@ function FlightConfirmation() {
           <div className="container-pagamento">
             <Timer />
             <p className="texto-pagamento">Garanta já o seu voo!</p>
-            <p>A oferta abaixo ficará disponível por apenas
-            30 minutos.</p>
+            <p>A oferta abaixo ficará disponível por apenas 30 minutos.</p>
             <FlightCard
               key={flights[0]._id}
               img={flights[0].airlines.split(",")[0]}
@@ -154,7 +153,7 @@ function FlightConfirmation() {
               qtd={qtdPass}
             />
             <div>
-            <p>Insira os dados do cartão de crédito:</p>
+              <p>Insira os dados do cartão de crédito:</p>
               <CreditCardInput
                 customTextLabels={{
                   invalidCardNumber: "O número do cartão está inválido.",
