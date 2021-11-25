@@ -1,6 +1,6 @@
 .container-footer {
     background-color: hsl(220, 16%, 15%);
-    color: hsl(218,30%,93%);
+    color: hsl(218,30%,93%); 
     text-align: center;
     display: flex;
     justify-content: center;
@@ -10,7 +10,6 @@
     flex-wrap: nowrap;
     flex-direction: row;
     width: 100vw;
-    /* margin-top: 250px; */
     height: fit-content;
     bottom: 0;
     gap: 5px;
