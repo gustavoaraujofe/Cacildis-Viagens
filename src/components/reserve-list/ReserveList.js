@@ -7,7 +7,6 @@ import Login from "../login/login";
 import { Link } from "react-router-dom";
 import "../button-pink/button-pink.css";
 import Alert from "../alert/Alert";
-import "./ReserveList.css"
 
 function ReserveList() {
   const [flights, setFlights] = useState([]);
@@ -18,23 +17,19 @@ function ReserveList() {
   const [email, setEmail] = useState("");
   const [userEmail, setUserEmail] = useState("");
   const [alert, setAlert] = useState(false);
-
   function handleChange(event) {
     setEmail(event.target.value);
   }
-
   function handleSubmit(event) {
     event.preventDefault();
     setUserEmail(email);
   }
-
   function deletePass(id) {
     let index = user.listaVoos.indexOf(id);
     user.listaVoos.splice(index, 1);
     setUser({ ...user, listaVoos: [...user.listaVoos] });
     setAlert(true);
   }
-
   function confirmDelete() {
     setAlert(false);
     axios
@@ -49,19 +44,16 @@ function ReserveList() {
         console.log(err);
       });
   }
-
   useEffect(() => {
     async function infoUser() {
       try {
         const response = await axios.get(
           "https://ironrest.herokuapp.com/cacildis-viagens-users"
         );
-
         if (userEmail.length > 0) {
           let filtered = response.data.filter((currentElement) => {
             return currentElement.email === userEmail;
           });
-
           if (filtered.length) {
             setUserId(filtered[0]._id);
             delete filtered[0]._id;
@@ -77,23 +69,19 @@ function ReserveList() {
     }
     infoUser();
   }, [userEmail]);
-
   useEffect(() => {
     async function flightList() {
       try {
         const response = await axios.get(
           "https://ironrest.herokuapp.com/cacildis-viagens-voos-v2"
         );
-
         setFlights([...response.data]);
       } catch (err) {
         console.log(err);
       }
     }
-
     flightList();
   }, []);
-
   useEffect(() => {
     let list = [];
     if (user.listaVoos !== undefined) {
@@ -111,11 +99,10 @@ function ReserveList() {
   return (
     <div className="h-100">
       <NavBar pag="Minhas Reservas" backButton="/" />
-      <div className="middle">
       {alert ? (
         <>
           <Alert type="success">Passagem cancelada com sucesso!</Alert>
-          <div className="middle">
+          <div className="btn-middle">
             <button className="btn-dark" onClick={() => confirmDelete()}>
               Ok
             </button>
@@ -124,7 +111,6 @@ function ReserveList() {
       ) : registeredUser === "noregistered" ? (
         <Alert type="warning">Usuário não encontrado!</Alert>
       ) : null}
-
       <h2 className="text-center h4 mt-5 text-top-pag">
         <strong>Minhas Reservas</strong>
       </h2>
@@ -136,7 +122,7 @@ function ReserveList() {
               handleSubmit={handleSubmit}
               align="center"
             />
-          </div>
+      </div>
         ) : reserveList.length === 0 && registeredUser === "registered" ? (
           <p className="text-center mt-5">Você não possui nenhuma reserva.</p>
         ) : registeredUser === "noregistered" ? (
@@ -181,5 +167,4 @@ function ReserveList() {
     </div>
   );
 }
-
 export default ReserveList;
