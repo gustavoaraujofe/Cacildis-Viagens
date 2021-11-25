@@ -2,7 +2,7 @@ import "./footer.css";
 
 function Footer() {
   return (
-    <footer className="container-footer">
+    <footer className="container-footer" style={{fontSize: "13px"}}>
       Cacildis Viagens 2021 <span>&copy; </span>Created by{" "}
       <a href="https://github.com/gustavoaraujofe" target="_blank">
         Gustavo Araújo
