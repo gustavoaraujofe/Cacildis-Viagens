@@ -6,6 +6,7 @@ import Login from "../login/login";
 import { Link } from "react-router-dom";
 import "../button-pink/button-pink.css";
 import Alert from "../alert/Alert";
+import "./ReserveList.css"
 
 function ReserveList() {
   const [flights, setFlights] = useState([]);
@@ -108,16 +109,21 @@ function ReserveList() {
   return (
     <div className="h-100">
       <NavBar pag="Minhas Reservas" backButton="/" />
+      <div className="middle">
       {alert ? (
         <>
           <Alert type="success">Passagem cancelada com sucesso!</Alert>
-          <div className="btn-middle">
+          <div className="middle">
             <button className="btn-dark" onClick={() => confirmDelete()}>
               Ok
             </button>
           </div>
         </>
       ) : null}
+      </div>
+      <div className="d-flex flex-column align-items-center">
+
+      
       {userEmail === "" ? (
         <div className=" mt-3 container">
           <Login
@@ -155,6 +161,7 @@ function ReserveList() {
           );
         })
       )}
+      </div>
     </div>
   );
 }

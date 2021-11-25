@@ -70,6 +70,15 @@ function BoardingPass(props) {
     }
   }, [idUser]);
 
+  function formatDate(input) {
+    const datePart = input.match(/\d+/g);
+    const day = datePart[1];
+    const month = datePart[0];
+    const year = datePart[2].substring(0, 4);
+
+    return day + "/" + month + "/" + year;
+  }
+
   return (
     <div>
       <NavBar pag="Boarding Pass" backButton="/reservas" />
@@ -85,7 +94,7 @@ function BoardingPass(props) {
                 <img className="cia-aerea-img" src={img} alt="" />
               </p>
               <span className="titulo">Data do voo: </span>
-              <span>{flights[0].departure_date}</span>
+              <span>{formatDate(flights[0].departure_date)}</span>
               <div className="dados-passagem">
                 <span className="titulo">Saída: </span>
                 <span>
