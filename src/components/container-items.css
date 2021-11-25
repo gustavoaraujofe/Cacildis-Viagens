@@ -19,13 +19,14 @@ hr {
     margin-bottom: 40px;
 }
 
+
 @media(max-width: 990px) {
     .text-top-pag {
         display: none;
     }
 }
 
-@media(max-width: 360px) {
+@media(max-width: 600px) {
     .container-items {
         margin-top: 20px;
         padding-top: 0px;

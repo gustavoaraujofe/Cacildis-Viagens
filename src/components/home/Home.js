@@ -6,6 +6,7 @@ import InputSelect from "../input-select/InputSelect";
 import NavBar from "../navbar/NavBar";
 import "./Home.css";
 import imgBackground from "../../assets/images/homepage-image.jpg";
+import Footer from "../footer/footer";
 
 function Home(props) {
   let to = "/";
@@ -62,7 +63,7 @@ function Home(props) {
         <div className="blockHome d-flex justify-content-center flex-column ms-2 me-2 mt-5">
           <div className="container blockHome2 d-flex align-items-center justify-content-center bg-opacity h-100">
             <div className="d-flex flex-column justify-content-between pt-3">
-              <div className="h-75 mb-2">
+              <div className="h-75 mb-4">
                 <HomeTitle />
               </div>
               <InputSelect
@@ -118,7 +119,7 @@ function Home(props) {
             </div>
           </div>
         </div>
-
+        <Footer />
       </div>
     </>
   );
