@@ -158,10 +158,9 @@ function FlightList(props) {
               <div className="">
                 {flights.map((currentElement) => {
                   return (
-                    <div className="mt-3">
+                    <div className="mt-3" key={currentElement._id}>
                       <Link
                         to={`/${currentElement._id}&${props.qtd}`}
-                        key={currentElement._id}
                       >
                         <FlightCard
                           img={currentElement.airlines.split(",")[0]}

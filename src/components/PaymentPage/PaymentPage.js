@@ -157,7 +157,7 @@ function FlightConfirmation() {
                 price={flights[0].price * qtdPass}
                 qtd={qtdPass}
               />
-              <div className="container-items mt-4 p-3">
+              <div className="container-items mt-4 p-4">
                 <div>
                   <p className="text-left mb-4">
                     <strong>Insira os dados do cartão de crédito:</strong>
