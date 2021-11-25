@@ -17,7 +17,7 @@ Site de viagens mobile-first, com simulação de login, responsivo e com animaç
 - [Site](https://cacildis-viagens.netlify.app/)
 
 ## Link para a apresentação em slides
-- [Slides](https://docs.google.com/presentation/d/10gUly10doxrOapuUQIxMY7WLWe4cSDh25B0g7Mf54BM/edit?usp=sharing)
+- [Slides](https://docs.google.com/presentation/d/1Xr3laGI1D0oXvGOi7JwVrWx0NYPDPsyg76ATmyB8L7U/edit?usp=sharing)
 
 ## Desenvolvedores
 - Simone Guimarães - simoneguimaraes11@gmail.com
