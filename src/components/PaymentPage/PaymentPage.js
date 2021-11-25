@@ -112,12 +112,12 @@ function FlightConfirmation() {
   }, [flightId]);
 
   return (
-    <div>
+    <div className="w-100">
       <NavBar pag="Pagamento" backButton="/" />
       {flights.length === 0 ? (
         <p className="text-center mt-5">Não existe voos para confirmar</p>
       ) : userEmail === "" ? (
-        <div className=" mt-3 container">
+        <div className=" mt-3 container container-items">
           <Login
             onChange={handleChangeLogin}
             handleSubmit={handleSubmitLogin}
@@ -135,7 +135,7 @@ function FlightConfirmation() {
             </div>
           </>
         ) : (
-          <>
+          <div className="w-100">
             <h2 className="text-center h4 mt-5 text-top-pag">
               <strong>Pagamento</strong>
             </h2>
@@ -157,7 +157,7 @@ function FlightConfirmation() {
                 price={flights[0].price * qtdPass}
                 qtd={qtdPass}
               />
-              <div className="container-items mt-4">
+              <div className="container-items mt-4 p-3">
                 <div>
                   <p className="text-left mb-4">
                     <strong>Insira os dados do cartão de crédito:</strong>
@@ -190,22 +190,22 @@ function FlightConfirmation() {
                 </button>
               </div>
             </div>
-          </>
+          </div>
         )
       ) : registeredUser === "noregistred" ? (
         <>
           <Alert type="warning">Usuário não encontrado!</Alert>
-          <div className=" mt-3 container">
+          <div className=" mt-3 container-items">
             <Login
               onChange={handleChangeLogin}
               handleSubmit={handleSubmitLogin}
               align="center"
             />
-          </div>
-          <div className="">
-            <Link to="/cadastro">
-              <button className="btn-dark">Criar novo cadastro</button>
-            </Link>
+            <div className="">
+              <Link to="/cadastro">
+                <button className="btn-dark mt-3">Criar novo cadastro</button>
+              </Link>
+            </div>
           </div>
         </>
       ) : null}

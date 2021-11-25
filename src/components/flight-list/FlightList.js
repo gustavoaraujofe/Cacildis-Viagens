@@ -82,7 +82,7 @@ function FlightList(props) {
   }, [refresh]);
 
   return (
-    <div>
+    <div className="w-100">
       <NavBar pag="Voos Encontrados" backButton="/" />
       {loading ? (
         <LoadingBar />
@@ -155,7 +155,7 @@ function FlightList(props) {
             {flights.length === 0 ? (
               <p className="text-center mt-5">Voo não encontrado...</p>
             ) : (
-              <div className="d-flex flex-column mt-3">
+              <div className="">
                 {flights.map((currentElement) => {
                   return (
                     <div className="mt-3">
