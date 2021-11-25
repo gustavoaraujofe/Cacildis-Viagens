@@ -135,51 +135,62 @@ function FlightConfirmation() {
             </div>
           </>
         ) : (
-          <div className="container-pagamento">
-            <Timer />
-            <p className="texto-pagamento">Garanta já o seu voo!</p>
-            <p>A oferta abaixo ficará disponível por apenas 30 minutos.</p>
-            <FlightCard
-              key={flights[0]._id}
-              img={flights[0].airlines.split(",")[0]}
-              departure_time={flights[0].departure_time}
-              arrival_time={flights[0].arrival_time}
-              trip_duration={flights[0].trip_duration}
-              departure_airport_code={flights[0].departure_airport_code}
-              arrival_airport_code={flights[0].arrival_airport_code}
-              num_stops={flights[0].num_stops}
-              price={flights[0].price * qtdPass}
-              qtd={qtdPass}
-            />
-            <div>
-              <p>Insira os dados do cartão de crédito:</p>
-              <CreditCardInput
-                customTextLabels={{
-                  invalidCardNumber: "O número do cartão está inválido.",
-                  expiryError: {
-                    invalidExpiryDate: "A data de expiração está inválida.",
-                    monthOutOfRange:
-                      "O mês de expiração deve ser um número entre 1 e 12.",
-                    yearOutOfRange:
-                      "O ano de expiração não pode ser inferior ao atual.",
-                    dateOutOfRange:
-                      "A data de expiração não pode ser inferior à atual.",
-                  },
-                  invalidCvc: "O código de segurança está inválido.",
-                  invalidZipCode: "O CEP está inválido.",
-                  cardNumberPlaceholder: "Número do cartão",
-                  expiryPlaceholder: "MM/AA",
-                  cvcPlaceholder: "CVC",
-                  zipPlaceholder: "CEP",
-                }}
+          <>
+            <h2 className="text-center h4 mt-5 text-top-pag">
+              <strong>Pagamento</strong>
+            </h2>
+            <div className="container-pagamento container-items">
+              <Timer />
+              <p className="texto-pagamento">Garanta já o seu voo!</p>
+              <p className="mb-4">
+                A oferta abaixo ficará disponível por apenas 30 minutos.
+              </p>
+              <FlightCard
+                key={flights[0]._id}
+                img={flights[0].airlines.split(",")[0]}
+                departure_time={flights[0].departure_time}
+                arrival_time={flights[0].arrival_time}
+                trip_duration={flights[0].trip_duration}
+                departure_airport_code={flights[0].departure_airport_code}
+                arrival_airport_code={flights[0].arrival_airport_code}
+                num_stops={flights[0].num_stops}
+                price={flights[0].price * qtdPass}
+                qtd={qtdPass}
               />
+              <div className="container-items mt-4">
+                <div>
+                  <p className="text-left mb-4">
+                    <strong>Insira os dados do cartão de crédito:</strong>
+                  </p>
+                </div>
+                <CreditCardInput
+                  customTextLabels={{
+                    invalidCardNumber: "O número do cartão está inválido.",
+                    expiryError: {
+                      invalidExpiryDate: "A data de expiração está inválida.",
+                      monthOutOfRange:
+                        "O mês de expiração deve ser um número entre 1 e 12.",
+                      yearOutOfRange:
+                        "O ano de expiração não pode ser inferior ao atual.",
+                      dateOutOfRange:
+                        "A data de expiração não pode ser inferior à atual.",
+                    },
+                    invalidCvc: "O código de segurança está inválido.",
+                    invalidZipCode: "O CEP está inválido.",
+                    cardNumberPlaceholder: "Número do cartão",
+                    expiryPlaceholder: "MM/AA",
+                    cvcPlaceholder: "CVC",
+                    zipPlaceholder: "CEP",
+                  }}
+                />
+              </div>
+              <div className="btn-pagamento mt-5">
+                <button className="btn-pink" onClick={() => addIdVoo()}>
+                  Fazer o Pagamento
+                </button>
+              </div>
             </div>
-            <div className="btn-pagamento">
-              <button className="btn-pink" onClick={() => addIdVoo()}>
-                Fazer o Pagamento
-              </button>
-            </div>
-          </div>
+          </>
         )
       ) : registeredUser === "noregistred" ? (
         <>

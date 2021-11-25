@@ -1,7 +1,6 @@
 .boarding-pass-container {
-    background-color: hsl(218,30%,93%);
-    width: 100vw;
-    height: 500px;
+    background-color: hsl(218, 30%, 93%);
+    width: 100%;
     padding: 20px;
     max-width: 900px;
     border: 10px solid white;
@@ -33,13 +32,14 @@ span {
 .titulo {
     font-weight: 700;
     font-size: 20px;
-    margin: 0;
+    margin: 2px;
 }
 
 .qr-code {
     display: flex;
-    justify-content: flex-end;
+    flex-direction: column;
     align-items: center;
+    margin-top: 50px
 }
 
 .ultimo {

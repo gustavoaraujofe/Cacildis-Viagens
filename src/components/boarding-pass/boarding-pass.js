@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import "./boarding-pass.css";
+import "../container-items.css";
 import QRCode from "react-qr-code";
 import gol from "../../assets/images/gol.jpg";
 import latam from "../../assets/images/latam.jpg";
@@ -81,65 +82,69 @@ function BoardingPass(props) {
 
   return (
     <div>
-      <NavBar pag="Boarding Pass" backButton="/reservas" />
+      <NavBar pag="Cartão de embarque" backButton="/reservas" />
       {loading ? null : flights.length === 0 ? (
         <p className="text-center mt-5">Você não possui nenhuma reserva.</p>
       ) : (
-        <>
-          <div>
+        <div>
+          <h2 className="text-center h4 mt-5 text-top-pag">
+            <strong>Cartão de embarque</strong>
+          </h2>
+          <div className="container-items">
             <div className="boarding-pass-container">
-              <span className="titulo">Nome do passageiro:</span>
-              <span className="titulo"> {user.nome}</span>
-              <p>
-                <img className="cia-aerea-img" src={img} alt="" />
-              </p>
-              <span className="titulo">Data do voo: </span>
-              <span>{formatDate(flights[0].departure_date)}</span>
-              <div className="dados-passagem">
-                <span className="titulo">Saída: </span>
-                <span>
+              <div className="m-auto" style={{ maxWidth: "270px" }}>
+                <span className="titulo">Nome do passageiro:</span>
+                <span className="titulo"> {user.nome}</span>
+                <p>
+                  <img className="cia-aerea-img mt-4" src={img} alt="" />
+                </p>
+                <span className="titulo">Data do voo: </span>
+                <span>{formatDate(flights[0].departure_date)}</span>
+                <div className="dados-passagem">
+                  <span className="titulo me-2">Saída:</span>
                   <ConvertHours
                     value={flights[0].departure_time}
                     decrement={false}
                   />
-                </span>
-                <span>{flights[0].departure_airport_code}</span>
-              </div>
-              <div className="dados-passagem">
-                <span className="titulo">Chegada: </span>
-                <ConvertHours value={flights[0].arrival_time} />
-                <span>{flights[0].arrival_airport_code}</span>
-              </div>
-              <div className="dados-passagem">
-                <span className="titulo">Classe: </span>
-                <span>{flights[0].cabin_class}</span>
-              </div>
-              <div className="dados-passagem">
-                <span className="titulo">Portão de Embarque: </span>
-                <span>{randomGate}</span>
-              </div>
-              <div className="dados-passagem">
-                <span className="titulo">Assento: </span>
-                <span>
-                  {randomSeat}
-                  {randomCharacter}
-                </span>
+                  <span>{flights[0].departure_airport_code}</span>
+                </div>
+                <div className="dados-passagem">
+                  <span className="titulo me-2">Chegada: </span>
+                  <ConvertHours value={flights[0].arrival_time} />
+                  <span>{flights[0].arrival_airport_code}</span>
+                </div>
+                <div className="dados-passagem">
+                  <span className="titulo">Classe: </span>
+                  <span>{flights[0].cabin_class.split(",")[0]}</span>
+                </div>
+                <div className="dados-passagem">
+                  <span className="titulo">Portão de Embarque: </span>
+                  <span>{randomGate}</span>
+                </div>
+                <div className="dados-passagem">
+                  <span className="titulo">Assento: </span>
+                  <span>
+                    {randomSeat}
+                    {randomCharacter}
+                  </span>
+                </div>
               </div>
               <div className="qr-code">
                 <QRCode value="hey" size={80} />
+                <div className="dados-passagem ultimo">
+                  <span className="titulo me-2">Horário de Embarque: </span>
+                  <ConvertHours
+                    value={flights[0].departure_time}
+                    decrement={true}
+                  />
+                </div>
+                <div className="mt-4">
+                  <button className="btn-pink">Imprimir</button>
+                </div>
               </div>
-              <div className="dados-passagem ultimo"></div>
-              <span className="titulo">Horário de Embarque: </span>
-              <ConvertHours
-                value={flights[0].departure_time}
-                decrement={true}
-              />
             </div>
           </div>
-          <div className="btn-middle">
-            <button className="btn-pink">Imprimir</button>
-          </div>
-        </>
+        </div>
       )}
     </div>
   );

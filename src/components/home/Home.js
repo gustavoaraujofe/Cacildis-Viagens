@@ -6,7 +6,6 @@ import InputSelect from "../input-select/InputSelect";
 import NavBar from "../navbar/NavBar";
 import "./Home.css";
 import imgBackground from "../../assets/images/homepage-image.jpg";
-import Footer from "../footer/footer";
 
 function Home(props) {
   let to = "/";
