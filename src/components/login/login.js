@@ -1,3 +1,5 @@
+import "./login.css";
+
 function Login(props) {
   return (
     <div
@@ -11,7 +13,7 @@ function Login(props) {
             props.align === "center" ? "flex-column" : ""
           } align-items-center flex-wrap justify-content-center`}
         >
-          <div className="col-auto">
+          <div className="col-auto m-2">
             <label className="visually-hidden">Email</label>
             <input
               type="text"
@@ -32,7 +34,7 @@ function Login(props) {
           <div className="col-auto">
             <button
               type="submit"
-              className="btn btn-dark m-0"
+              className="btn btn-dark m-0 btn-login"
               style={{ width: "120px" }}
             >
               Logar

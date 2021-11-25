@@ -1,0 +1,10 @@
+.btn-login{
+    margin-left: 5px !important;    
+}
+
+@media (max-width: 519px) {
+    .btn-login{
+        margin-left: 66px !important;
+        margin-right: 66px !important;    
+    }
+}
