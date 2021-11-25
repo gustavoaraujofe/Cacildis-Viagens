@@ -21,7 +21,6 @@ function FlightConfirmation() {
   const [confirmPayment, setConfirmPayment] = useState(false);
   const [userId, setUserId] = useState("");
   const [flights, setFlights] = useState([]);
-  const [loading, setLoading] = useState([]);
   const [formData, setFormData] = useState({
     nome: "",
     genero: "",
