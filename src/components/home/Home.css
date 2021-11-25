@@ -43,10 +43,10 @@
     }
 }
 
-@media(max-width: 330px) {
+@media(max-width: 360px) {
     .blockHome2 {
         padding-top: 0;
         padding-bottom: 0;
-        font-size: 0.85em;
+        font-size: 0.7em;
     }
 }

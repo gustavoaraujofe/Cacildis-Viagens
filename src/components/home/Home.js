@@ -60,9 +60,9 @@ function Home(props) {
           setLogin={props.login}
         />
         <div className="blockHome d-flex justify-content-center flex-column ms-2 me-2 mt-5">
-          <div className="container d-flex align-items-center justify-content-center bg-opacity pt-3 pb-3 h-100">
+          <div className="container blockHome2 d-flex align-items-center justify-content-center bg-opacity h-100">
             <div className="d-flex flex-column justify-content-between pt-3">
-              <div className="h-75">
+              <div className="h-75 mb-2">
                 <HomeTitle />
               </div>
               <InputSelect
