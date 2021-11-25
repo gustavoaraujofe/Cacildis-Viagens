@@ -89,7 +89,7 @@ function FlightList(props) {
       ) : (
         <div>
           <h2 className="text-center h4 mt-5 text-top-pag">
-            <strong>Voos Encontrados</strong>
+            <strong>Voos encontrados</strong>
           </h2>
           <div className="container-items">
             <div className="texto">
