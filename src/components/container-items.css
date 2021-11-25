@@ -24,3 +24,10 @@ hr {
         display: none;
     }
 }
+
+@media(max-width: 360px) {
+    .container-items {
+        margin-top: 20px;
+        padding-top: 0px;
+    }
+}
