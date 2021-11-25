@@ -1,0 +1,46 @@
+.container-footer {
+    background-color: hsl(220, 16%, 15%);
+    color: hsl(218,30%,93%);
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 5;
+    align-items: baseline;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    width: 100vw;
+    /* margin-top: 250px; */
+    height: fit-content;
+    position: fixed;
+    bottom: 0px;
+    gap: 5px;
+}
+
+.container-footer a {
+    color: hsl(154, 100%, 48%);
+}
+
+.container-footer a:hover {
+    color: hsl(218,30%,83%);
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    display: table;
+}
+
+footer {
+    background-color: grey;
+    display: table-row;
+    height: 0;
+    z-index: 30;
+}
+
+@media (max-width: 800px) {
+    .container-footer {
+        display: none;
+    }
+}

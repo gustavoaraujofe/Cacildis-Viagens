@@ -35,14 +35,6 @@ function BoardingPass(props) {
   const randomCharacter =
     alphabet[Math.floor(Math.random() * alphabet.length)].toUpperCase();
 
-  function formatDate(input) {
-    const datePart = input.match(/\d+/g);
-    const day = datePart[1];
-    const month = datePart[0];
-    const year = datePart[2].substring(0, 4);
-    return day + "/" + month + "/" + year;
-  }
-
   useEffect(() => {
     async function flightList() {
       try {
@@ -78,6 +70,15 @@ function BoardingPass(props) {
       infoUser();
     }
   }, [idUser]);
+
+  function formatDate(input) {
+    const datePart = input.match(/\d+/g);
+    const day = datePart[1];
+    const month = datePart[0];
+    const year = datePart[2].substring(0, 4);
+
+    return day + "/" + month + "/" + year;
+  }
 
   return (
     <div>
