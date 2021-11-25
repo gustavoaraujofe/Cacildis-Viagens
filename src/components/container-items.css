@@ -1,0 +1,26 @@
+.container-items {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    margin-top: 50px;
+    padding-top: 30px;
+    padding-bottom: 40px;
+    max-width: 750px;
+    border: 1px solid rgba(144, 144, 144, 0.431);
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px #4141419d;
+}
+
+hr {
+    background-color: rgba(0, 0, 0, 0.37);
+    border: 1px solid rgba(144, 144, 144, 0.431);
+    margin-bottom: 40px;
+}
+
+@media(max-width: 990px) {
+    .text-top-pag {
+        display: none;
+    }
+}

@@ -1,4 +1,5 @@
 import "./FlightList.css";
+import "../container-items.css";
 import FlightCard from "../flight-card/flight-card";
 import { useEffect, useState } from "react";
 import axios from "axios";
@@ -87,89 +88,105 @@ function FlightList(props) {
         <LoadingBar />
       ) : (
         <div>
-          <div className="texto">
-            <InputSelect
-              label="Origem"
-              id="origem"
-              name="origem"
-              onChange={handleChange}
-              value={props.dadosVoos.origem}
-            >
-              <option value="" disabled>
-                Selecione a origem
-              </option>
-              <option value="GRU">São Paulo - Guarulhos</option>
-              <option value="GIG">Rio de Janeiro - Galeão</option>
-              <option value="SSA">Salvador</option>
-            </InputSelect>
+          <h2 className="text-center h4 mt-5 text-top-pag">
+            <strong>Voos Encontrados</strong>
+          </h2>
+          <div className="container-items">
+            <div className="texto">
+              <InputSelect
+                label="Origem"
+                id="origem"
+                name="origem"
+                onChange={handleChange}
+                value={props.dadosVoos.origem}
+              >
+                <option value="" disabled>
+                  Selecione a origem
+                </option>
+                <option value="GRU">São Paulo - Guarulhos</option>
+                <option value="GIG">Rio de Janeiro - Galeão</option>
+                <option value="SSA">Salvador</option>
+              </InputSelect>
 
-            <InputSelect
-              label="Destino"
-              id="destino"
-              name="destino"
-              onChange={handleChange}
-              value={props.dadosVoos.destino}
-            >
-              <option value="" disabled>
-                Selecione o destino
-              </option>
-              <option value="GRU">São Paulo - Guarulhos</option>
-              <option value="GIG">Rio de Janeiro - Galeão</option>
-              <option value="SSA">Salvador</option>
-            </InputSelect>
-            <InputData
-              label="Ida"
-              id="data"
-              name="data"
-              onChange={handleChange}
-              value={props.dadosVoos.data}
-            />
-            <div className="btn-middle">
-              <ButtonDark
-                content="Buscar"
-                to="/voos"
-                onClick={() => setRefresh(!refresh)}
+              <InputSelect
+                label="Destino"
+                id="destino"
+                name="destino"
+                onChange={handleChange}
+                value={props.dadosVoos.destino}
+              >
+                <option value="" disabled>
+                  Selecione o destino
+                </option>
+                <option value="GRU">São Paulo - Guarulhos</option>
+                <option value="GIG">Rio de Janeiro - Galeão</option>
+                <option value="SSA">Salvador</option>
+              </InputSelect>
+              <InputData
+                label="Ida"
+                id="data"
+                name="data"
+                onChange={handleChange}
+                value={props.dadosVoos.data}
               />
-            </div>
-            <button
-              className="btn btn-dark mt-2"
-              onClick={() => reOrder("price")}
-            >
-              Ordenar por menor preço
-            </button>
-            <button
-              className="btn btn-dark mt-2"
-              onClick={() => reOrder("time")}
-            >
-              Ordenar por menor tempo
-            </button>
-          </div>
-          {flights.length === 0 ? (
-            <p className="text-center mt-5">Voo não encontrado...</p>
-          ) : (
-            flights.map((currentElement) => {
-              return (
-                <Link
-                  to={`/${currentElement._id}&${props.qtd}`}
-                  key={currentElement._id}
+              <div className="btn-middle mt-4">
+                <ButtonDark
+                  content="Buscar"
+                  to="/voos"
+                  onClick={() => setRefresh(!refresh)}
+                />
+              </div>
+              <p className="pt-3 h6">Ordenar por:</p>
+              <div className="d-flex flex-wrap justify-content-evenly pt-1">
+                <button
+                  className="btn btn-dark bt-filter"
+                  onClick={() => reOrder("price")}
                 >
-                  <FlightCard
-                    img={currentElement.airlines.split(",")[0]}
-                    departure_time={currentElement.departure_time}
-                    arrival_time={currentElement.arrival_time}
-                    trip_duration={currentElement.trip_duration}
-                    departure_airport_code={
-                      currentElement.departure_airport_code
-                    }
-                    arrival_airport_code={currentElement.arrival_airport_code}
-                    num_stops={currentElement.num_stops}
-                    price={currentElement.price * props.qtd}
-                    qtd={props.qtd}
-                  />
-                </Link>
-              );
-            })
-          )}
+                  Menor preço
+                </button>
+                <button
+                  className="btn btn-dark bt-filter"
+                  onClick={() => reOrder("time")}
+                >
+                  Menor tempo
+                </button>
+              </div>
+            </div>
+            {flights.length === 0 ? (
+              <p className="text-center mt-5">Voo não encontrado...</p>
+            ) : (
+              <div className="d-flex flex-column mt-3">
+                {flights.map((currentElement) => {
+                  return (
+                    <div className="mt-3">
+                      <Link
+                        to={`/${currentElement._id}&${props.qtd}`}
+                        key={currentElement._id}
+                      >
+                        <FlightCard
+                          img={currentElement.airlines.split(",")[0]}
+                          departure_time={currentElement.departure_time}
+                          arrival_time={currentElement.arrival_time}
+                          trip_duration={currentElement.trip_duration}
+                          departure_airport_code={
+                            currentElement.departure_airport_code
+                          }
+                          arrival_airport_code={
+                            currentElement.arrival_airport_code
+                          }
+                          num_stops={currentElement.num_stops}
+                          price={
+                            currentElement.price * (props.qtd ? props.qtd : 1)
+                          }
+                          qtd={props.qtd ? props.qtd : 1}
+                        />
+                      </Link>
+                    </div>
+                  );
+                })}
+              </div>
+            )}
+          </div>
         </div>
       )}
     </div>

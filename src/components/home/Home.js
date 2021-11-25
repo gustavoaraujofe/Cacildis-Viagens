@@ -54,6 +54,7 @@ function Home(props) {
       <NavBar
         pag="Home"
         backButton="/"
+        opacity="opacity-75"
         login={props.login}
         setLogin={props.login}
       />

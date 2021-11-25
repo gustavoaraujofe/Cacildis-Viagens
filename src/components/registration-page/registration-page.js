@@ -5,6 +5,7 @@ import axios from "axios";
 import Form from "../form/form";
 import NavBar from "../navbar/NavBar";
 import Alert from "../alert/Alert";
+import "../container-items.css";
 
 function RegistrationPage() {
   const [userCreated, setUserCreated] = useState(false);
@@ -39,7 +40,7 @@ function RegistrationPage() {
   }
 
   return (
-    <>
+    <div>
       <NavBar pag="Meu Cadastro" backButton="/" />
       {userCreated ? (
         <>
@@ -50,35 +51,40 @@ function RegistrationPage() {
             </Link>
           </div>
         </>
-      ) : newRegistration ? (
-        <div className="container mt-5">
-          <Form
-            handleChange={handleChange}
-            handleSubmit={handleSubmit}
-            formData={formData}
-            setFormData={setFormData}
-            isSending={isSending}
-            textBtn="Confirmar Alteração"
-          />
-        </div>
-      ) : (
-        <>
-          <div className="btn-middle">
-            <button
-              className="btn-dark"
-              onClick={() => setNewRegistration(true)}
-            >
-              Criar nova conta
-            </button>
+      ) : null}
+      <div className="container-items">
+        {newRegistration ? (
+          <div className="container mt-5" style={{ maxWidth: "800px" }}>
+            <div className="w-100 m-auto d-flex justify-content-center">
+              <Form
+                handleChange={handleChange}
+                handleSubmit={handleSubmit}
+                formData={formData}
+                setFormData={setFormData}
+                isSending={isSending}
+                textBtn="Cadastrar"
+              />
+            </div>
           </div>
-          <div className="btn-middle">
-            <Link to="/editar-cadastro">
-              <button className="btn-dark">Editar conta</button>
-            </Link>
+        ) : (
+          <div className="d-flex flex-column justify-content-center mt-4">
+            <div className="btn-middle">
+              <button
+                className="btn-dark"
+                onClick={() => setNewRegistration(true)}
+              >
+                Criar nova conta
+              </button>
+            </div>
+            <div className="btn-middle">
+              <Link to="/editar-cadastro">
+                <button className="btn-dark">Editar conta</button>
+              </Link>
+            </div>
           </div>
-        </>
-      )}
-    </>
+        )}
+      </div>
+    </div>
   );
 }
 
