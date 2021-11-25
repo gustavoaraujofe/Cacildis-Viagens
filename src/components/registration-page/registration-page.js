@@ -52,9 +52,15 @@ function RegistrationPage() {
           </div>
         </>
       ) : null}
+      {newRegistration ? <h2 className="text-center h4 mt-5 text-top-pag">
+        <strong>Cadastro</strong>
+      </h2>: null}
       <div className="container-items">
         {newRegistration ? (
-          <div className="container mt-5" style={{ maxWidth: "800px" }}>
+          <div
+            className="container mt-5 resg-pag-container"
+            style={{ maxWidth: "800px" }}
+          >
             <div className="w-100 m-auto d-flex justify-content-center">
               <Form
                 handleChange={handleChange}
