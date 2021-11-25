@@ -20,7 +20,7 @@ function FlightCard(props) {
   return (
     <button className="btn-light">
       <p>
-        <img className="img-cia-aerea" src={img} alt="" />
+        <img className="img-cia-aerea" src={img} alt="Companhia Aerea" />
       </p>
       <div className="info-voo">
         <div className="horario-voo">
