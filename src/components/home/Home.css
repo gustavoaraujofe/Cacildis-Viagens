@@ -2,6 +2,13 @@
     max-height: 80%;
 }
 
+.img-background {
+    background-image: url(../../assets/images/homepage-image.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
 .bg-opacity {
     background-color: white;
     opacity: 0.875;
@@ -15,7 +22,6 @@
     width: 100vw;
     height: 100vh;
     object-fit: cover;
-    z-index: -1;
 }
 
 .btn-home {

@@ -5,7 +5,6 @@ import Counter from "../counter/CounterPeople";
 import InputSelect from "../input-select/InputSelect";
 import NavBar from "../navbar/NavBar";
 import "./Home.css";
-import imgBackground from "../../assets/images/homepage-image.jpg";
 import Footer from "../footer/footer";
 
 function Home(props) {
@@ -50,9 +49,7 @@ function Home(props) {
 
   return (
     <>
-      <div className="h-100">
-        <img src={imgBackground} alt="background" className="background" />
-
+      <div className="h-100 img-background">
         <NavBar
           pag="Home"
           backButton="/"
