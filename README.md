@@ -9,7 +9,7 @@
 Aplicação Front-End utilizando React e APIs externas desenvolvida em uma semana.
 Site de viagens mobile-first, com simulação de login, responsivo e com animações.
 ###
-<img src="./src/assets/images/printscreen.png" alt="print" style="height:350px;"/>&nbsp; &nbsp; <img src="./src/assets/images/printscreen-mobile.jpg" alt="print" style="height:350px;"/> 
+<img src="./src/assets/images/printscreen.png" alt="print" style="height:330px;"/>&nbsp; &nbsp; <img src="./src/assets/images/printscreen-mobile.jpg" alt="print" style="height:330px;"/> 
 ###
 
 
