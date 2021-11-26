@@ -9,8 +9,7 @@
 Aplicação Front-End utilizando React e APIs externas desenvolvida em uma semana.
 Site de viagens mobile-first, com simulação de login, responsivo e com animações.
 ###
-![Cacildis Viagens](./src/assets/images/printscreen.png)
-![Cacildis Viagens Mobile](./src/assets/images/printscreen-mobile.jpg)
+<img src="./src/assets/images/printscreen.png" alt="print" style="height:390px;"/>&nbsp; &nbsp; <img src="./src/assets/images/printscreen-mobile.jpg" alt="print" style="height:390px;"/> 
 ###
 
 
