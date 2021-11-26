@@ -9,6 +9,13 @@ import InputSelect from "../input-select/InputSelect";
 import ButtonDark from "../button-dark/button-dark";
 import InputData from "../input-data/input-data";
 import { Link } from "react-router-dom";
+import audioVoo from "../../assets/audio/audio-voo.mp3";
+
+const playAudio = new Audio(audioVoo);
+function playAudioVoo() {
+  playAudio.play();
+  playAudio.volume = 0.3;
+}
 
 function FlightList(props) {
   const [flights, setFlights] = useState([]);
@@ -84,8 +91,12 @@ function FlightList(props) {
   return (
     <div className="w-100">
       <NavBar pag="Voos Encontrados" backButton="/" />
+
       {loading ? (
-        <LoadingBar />
+        <>
+          <LoadingBar />
+          {playAudioVoo()}
+        </>
       ) : (
         <div>
           <h2 className="text-center h4 mt-5 text-top-pag">
@@ -159,9 +170,7 @@ function FlightList(props) {
                 {flights.map((currentElement) => {
                   return (
                     <div className="mt-3" key={currentElement._id}>
-                      <Link
-                        to={`/${currentElement._id}&${props.qtd}`}
-                      >
+                      <Link to={`/${currentElement._id}&${props.qtd}`}>
                         <FlightCard
                           img={currentElement.airlines.split(",")[0]}
                           departure_time={currentElement.departure_time}
